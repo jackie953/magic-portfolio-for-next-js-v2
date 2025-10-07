@@ -21,7 +21,6 @@ const routes: RoutesConfig = {
   "/about": true,
   "/work": true,
   "/blog": true,
-  "/gallery": true,
 };
 
 const display: DisplayConfig = {
@@ -195,9 +194,9 @@ const schema: SchemaConfig = {
 
 // social links
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  linkedin: "https://www.linkedin.com/in/mhitaryan",
+  threads: "",
+  discord: "",
 };
 
 // social sharing configuration for blog posts
