@@ -11,6 +11,7 @@ import {
   SocialSharingConfig,
   StyleConfig,
 } from "@/types";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { home } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
