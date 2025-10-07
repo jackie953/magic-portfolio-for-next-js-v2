@@ -6,7 +6,7 @@ const person: Person = {
   lastName: "",
   name: "Mhitaryan Works",
   role: "",
-  avatar: "/images/logo 500x500",
+  avatar: "/images/logo 500x500.jpg",
   email: "jackie@mhitaryan.com",
   location: "Europe/Stockholm", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: [""], // optional: Leave the array empty if you don't want to display languages
@@ -36,7 +36,7 @@ const home: Home = {
   image: "/images/og/home.jpg",
   label: "Home",
   title: "",
-  description: `Portfolio website showcasing my work as a ${person.role}`,
+  description: "",
   headline: <>Clarity and Courage When It Matters Most</>,
   featured: {
     display: false,
@@ -62,9 +62,9 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: "",
   tableOfContent: {
-    display: true,
+    display: false,
     subItems: false,
   },
   avatar: {
@@ -160,7 +160,7 @@ const about: About = {
       {
         title: "Next.js",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>lorem.</>
         ),
         tags: [
           {
