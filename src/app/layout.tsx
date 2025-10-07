@@ -15,6 +15,8 @@ import {
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
+import InteractiveCTA from '@/components/interactive-cta';
+import { usePathname } from 'next/navigation';
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -25,7 +27,7 @@ export async function generateMetadata() {
     image: home.image,
   });
 }
-
+// Removed duplicate RootLayout function and default export
 export default async function RootLayout({
   children,
 }: Readonly<{
