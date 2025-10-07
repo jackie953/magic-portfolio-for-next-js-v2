@@ -12,7 +12,7 @@ import {
   Line,
 } from "@once-ui-system/core";
 import { home, about, services, contact, person, baseURL, routes } from "@/resources";
-import { Mailchimp } from "@/components";
+import { BookingCTA } from "@/components/BookingCTA";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import Services from "./services/page";
@@ -80,7 +80,7 @@ export default function Home() {
   <Button
     id="learn-more"
     data-border="rounded"
-    href={services.path} // or change to "/services" if you want it to link to services
+    href={services.path} 
     variant="secondary"
     size="m"
     weight="default"
@@ -114,7 +114,7 @@ export default function Home() {
         </Column>
       )}
       <Projects range={[2]} />
-      <Mailchimp />
+      <BookingCTA />
     </Column>
   );
 }

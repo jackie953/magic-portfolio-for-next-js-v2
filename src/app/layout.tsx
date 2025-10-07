@@ -2,7 +2,8 @@ import "@/styles/tailwind.css";
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/next"; 
+
 
 import classNames from "classnames";
 
@@ -17,12 +18,8 @@ import {
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
-// REMOVE this old line ↓
-// import InteractiveCTA from '@/components/interactive-cta';
-import CTAWrapper from '@/components/CTAWrapper'; // ✅ add this instead
 
-// you no longer need usePathname here, it’s handled inside the wrapper
-// import { usePathname } from 'next/navigation';
+import CTAWrapper from '@/components/CTAWrapper'; // ✅ add this instead
 
 export async function generateMetadata() {
   return Meta.generate({
