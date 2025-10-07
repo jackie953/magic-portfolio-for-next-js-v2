@@ -1,4 +1,4 @@
-import {
+import type {
   BorderStyle,
   ChartMode,
   ChartVariant,
@@ -11,7 +11,7 @@ import {
   Theme,
   TransitionStyle,
 } from "@once-ui-system/core";
-import { NextFontWithVariable } from "next/dist/compiled/@next/font";
+import type { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
 /**
  * Display configuration for UI elements.
@@ -120,15 +120,7 @@ export type EffectsConfig = {
 };
 
 /**
- * Mailchimp configuration for newsletter forms.
- */
-export type MailchimpConfig = {
-  action: string;
-  effects: EffectsConfig;
-};
-
-/**
- * Schema data for SEO/meta tags.
+ * Schema configuration for organization.
  */
 export type SchemaConfig = {
   logo: string;
@@ -137,7 +129,6 @@ export type SchemaConfig = {
   description: string;
   email: string;
 };
-
 /**
  * Social links for organization.
  */
@@ -170,7 +161,6 @@ export type SocialSharingConfig = {
  */
 export type OnceUIConfig = {
   display: DisplayConfig;
-  mailchimp: MailchimpConfig;
   routes: RoutesConfig;
   protectedRoutes: ProtectedRoutesConfig;
   baseURL: string;
