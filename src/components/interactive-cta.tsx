@@ -63,7 +63,7 @@ const InteractiveCTA = ({
   const [isOpen, setIsOpen] = useState(initialOpen);
 
   return (
-    <div className={cn('fixed z-50 bottom-4 right-4 overflow-hidden', className)}>
+    <div className={cn('fixed z-50 bottom-8 right-6 sm:bottom-6 sm:right-6 overflow-hidden', className)}>
       <AnimatePresence mode="popLayout">
         <motion.div
           animate={{
