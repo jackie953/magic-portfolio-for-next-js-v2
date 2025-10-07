@@ -15,7 +15,7 @@ const person: Person = {
 const newsletter: Newsletter = {
   display: true,
   title: <>Book a Discovery Call</>,
-  description: <>Let's explore how we can work together - no obligation, no pitch.</>,
+  description: <>Let&apos;s explore how we can work together - no obligation, no pitch.</>,
 };
 
 const social: Social = [
@@ -79,7 +79,7 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+          &quot;"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
       </>
     ),

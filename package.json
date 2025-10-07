@@ -19,6 +19,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "classnames": "^2.5.1",
     "cookie": "^1.0.2",
+    "eslint-config-next": "^15.5.4",
     "framer-motion": "^12.23.22",
     "gray-matter": "^4.0.3",
     "lint-staged": "^16.1.5",
