@@ -2,7 +2,8 @@
 
 import { ArrowUpRight, Eye } from 'lucide-react';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { cn } from '@/utils/tailwind.utils';
 
@@ -22,6 +23,7 @@ const NavigationButton = ({
   className = ''
 }: ButtonProps) => {
   const [hovered, setHovered] = useState(false);
+
   return (
     <div className="flex items-start">
       <Link href={href} target={target}>
@@ -38,22 +40,10 @@ const NavigationButton = ({
             {!hovered && (
               <motion.div
                 key={`eye-btn${href}`}
-                initial={{
-                  x: -10,
-                  opacity: 0
-                }}
-                animate={{
-                  x: 0,
-                  opacity: 1
-                }}
-                exit={{
-                  x: -10,
-                  opacity: 0
-                }}
-                transition={{
-                  ease: 'linear',
-                  duration: 0.1
-                }}
+                initial={{ x: -10, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -10, opacity: 0 }}
+                transition={{ ease: 'linear', duration: 0.1 }}
               >
                 {icon ? icon : <Eye size={14} />}
               </motion.div>
@@ -68,22 +58,10 @@ const NavigationButton = ({
             {hovered && (
               <motion.div
                 key={`arrow-btn${href}`}
-                initial={{
-                  x: 10,
-                  opacity: 0
-                }}
-                animate={{
-                  x: 0,
-                  opacity: 1
-                }}
-                exit={{
-                  x: 10,
-                  opacity: 0
-                }}
-                transition={{
-                  ease: 'linear',
-                  duration: 0.1
-                }}
+                initial={{ x: 10, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 10, opacity: 0 }}
+                transition={{ ease: 'linear', duration: 0.1 }}
               >
                 <ArrowUpRight size={14} />
               </motion.div>

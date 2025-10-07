@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { IconBrandX, IconMail } from '@tabler/icons-react';
 import { MessageCircle, X } from 'lucide-react';
-import NavigationButton from './navigation-button';
+import NavigationButton from '../components/navigation-button';
 import { cn } from '@/utils/tailwind.utils';
 
 export interface NavigationLink {
@@ -60,6 +61,7 @@ const InteractiveCTA = ({
   closeHeight = '50px'
 }: InteractiveCTAProps) => {
   const [isOpen, setIsOpen] = useState(initialOpen);
+
   return (
     <div className={cn('fixed z-50 bottom-4 right-4 overflow-hidden', className)}>
       <AnimatePresence mode="popLayout">
@@ -69,38 +71,33 @@ const InteractiveCTA = ({
             height: isOpen ? openHeight : closeHeight,
             borderColor: !isOpen ? '#3F3F46' : '#888888'
           }}
-          transition={{
-            type: 'spring',
-            stiffness: 300,
-            damping: 27
-          }}
+          transition={{ type: 'spring', stiffness: 300, damping: 27 }}
           className="flex-col border-[2px] rounded-xl border-white/5 bg-zinc-900 flex items-center justify-center relative"
         >
           {!isOpen && (
             <motion.button
               key="open-button"
+              type="button"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(true)}
-              className="flex items-center hover:bg-white/5 rounded-xl justify-center absolute -bottom-0.5 -right-0.5"
+              className="flex items-center justify-center absolute -bottom-0.5 -right-0.5
+                        rounded-xl bg-zinc-900 border border-white/5
+                        hover:bg-white/5 transition"
               style={{ width: closeWidth, height: closeHeight }}
             >
-              {openIcon || <MessageCircle size={20} />}
+              {openIcon || <MessageCircle size={20} className="text-white" />}  {/* ✅ white icon */}
             </motion.button>
-          )}
+            )}
           {isOpen && (
-            <div className="flex flex-col p-4 h-full w-full">
+            <div className="flex flex-col p-5 h-full w-full gap-3">
               <div className="flex items-center justify-center gap-2">
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{
-                    duration: 0.1,
-                    ease: 'linear',
-                    delay: 0.1
-                  }}
+                  transition={{ duration: 0.1, ease: 'linear', delay: 0.1 }}
                   key="image-container"
                   className="rounded-full h-[42px] w-[42px] bg-gradient-to-b from-yellow-400 to-purple-500 flex items-center justify-center overflow-hidden"
                 >
@@ -110,13 +107,9 @@ const InteractiveCTA = ({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{
-                    duration: 0.1,
-                    ease: 'linear',
-                    delay: 0.1
-                  }}
+                  transition={{ duration: 0.1, ease: 'linear', delay: 0.1 }}
                   key="text-container"
-                  className="text-sm truncate text-white/70 font-medium"
+                  className="text-sm truncate font-body text-white/70 font-medium"
                 >
                   {heading}
                   <br />
@@ -127,12 +120,7 @@ const InteractiveCTA = ({
                 initial={{ x: 10, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -10, opacity: 0 }}
-                transition={{
-                  duration: 0.1,
-                  ease: 'linear',
-                  delay: 0.1,
-                  staggerChildren: 0.1
-                }}
+                transition={{ duration: 0.1, ease: 'linear', delay: 0.1, staggerChildren: 0.1 }}
                 key="navigation-buttons"
                 className="flex flex-col mt-4"
               >
@@ -149,14 +137,14 @@ const InteractiveCTA = ({
               </motion.div>
               <div className="absolute bottom-4 right-4">
                 <motion.button
-                  key="close-button"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center hover:bg-white/10 place-self-end h-[32px] w-[32px] rounded-md"
-                >
-                  {closeIcon || <X size={20} />}
+                    key="close-button"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-center hover:bg-white/10 place-self-end h-[32px] w-[32px] rounded-md"
+                  >
+                    {closeIcon || <X size={20} className="text-white" />}  {/* ✅ add text-white */}
                 </motion.button>
               </div>
             </div>

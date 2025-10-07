@@ -9,6 +9,10 @@ const withMDX = mdx({
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   transpilePackages: ["next-mdx-remote"],
+
+  // ✅ Add this line to disable source maps (faster dev builds)
+  productionBrowserSourceMaps: false,
+
   images: {
     remotePatterns: [
       {
@@ -18,6 +22,7 @@ const nextConfig = {
       },
     ],
   },
+
   sassOptions: {
     compiler: "modern",
     silenceDeprecations: ["legacy-js-api"],
