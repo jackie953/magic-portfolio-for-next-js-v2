@@ -1,4 +1,4 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { type About, type Blog, type Gallery, type Home, type Newsletter, type Person, type Social, type Work, Services, Contact } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -190,6 +190,20 @@ const about: About = {
   },
 };
 
+const services = {
+  path: "/services",
+  label: "Services",
+  title: `Services – ${person.name}`,
+  description: "Strategic research and communications services",
+};
+
+const contact = {
+  path: "/contact",
+  label: "Contact",
+  title: `Contact – ${person.name}`,
+  description: "Get in touch to discuss how we can help you",
+};
+
 const blog: Blog = {
   path: "/blog",
   label: "Insights",
@@ -213,7 +227,7 @@ const gallery: Gallery = {
   label: "Gallery",
   title: `Photo gallery – ${person.name}`,
   description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
+  // Images by [https://lorant.one](https://lorant.one)
   // These are placeholder images, replace with your own
   images: [
     {
@@ -259,4 +273,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, services, contact, blog, work, gallery };
