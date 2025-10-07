@@ -20,7 +20,7 @@ const routes: RoutesConfig = {
   "/": true,
   "/about": true,
   "/work": true,
-  "/blog": true,
+  "/blog": false,
   "/gallery": false,
 };
 
@@ -75,8 +75,8 @@ const fonts: FontsConfig = {
 const style: StyleConfig = {
   theme: "system", // dark | light | system
   neutral: "gray", // sand | gray | slate | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "red", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  brand: "violet", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
   border: "playful", // rounded | playful | conservative
@@ -187,10 +187,10 @@ const mailchimp: MailchimpConfig = {
 // default schema data
 const schema: SchemaConfig = {
   logo: "",
-  type: "Organization",
-  name: "Once UI",
-  description: home.description,
-  email: "lorant@once-ui.com",
+  type: "",
+  name: "",
+  description: "",
+  email: "",
 };
 
 // social links
