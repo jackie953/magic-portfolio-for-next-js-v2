@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link"; // ADD THIS LINE
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 import { ThemeToggle } from "./ThemeToggle";
@@ -69,9 +70,9 @@ export const Header = () => {
       >
         {/* LEFT SIDE: Company name */}
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-            Mhitaryan Works
-          </a>
+        <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          Mhitaryan Works
+       </Link>
         </Row>
 
         {/* CENTER: Navigation */}
