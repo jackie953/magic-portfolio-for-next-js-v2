@@ -15,6 +15,7 @@ import { home, about, services, contact, person, baseURL, routes } from "@/resou
 import { BookingCTA } from "@/components/BookingCTA";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import Services from "./services/page";
 
 export async function generateMetadata() {
@@ -80,14 +81,15 @@ export default function Home() {
   <Button
     id="learn-more"
     data-border="rounded"
-    href={services.path} 
+    href={services.path}
     variant="secondary"
     size="m"
     weight="default"
     arrowIcon
-  >
+    className="text-neutral-900 dark:text-white"
+>
     Learn More
-  </Button>
+  </Button> 
 </RevealFx>
         </Column>
       </Column>

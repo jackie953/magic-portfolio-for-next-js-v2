@@ -1,21 +1,28 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Row, ToggleButton, useTheme } from "@once-ui-system/core";
+import type React from "react";
+import { useEffect, useState } from "react";
+import { ToggleButton, useTheme } from "@once-ui-system/core";
 
 export const ThemeToggle: React.FC = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [currentTheme, setCurrentTheme] = useState("light");
 
+  // Run once after mount
   useEffect(() => {
     setMounted(true);
-    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
+    const htmlTheme =
+      document.documentElement.getAttribute("data-theme") || "light";
+    setCurrentTheme(htmlTheme);
   }, []);
 
+  // Persist user’s theme choice
   useEffect(() => {
-    setCurrentTheme(document.documentElement.getAttribute("data-theme") || "light");
-  }, [theme]);
+    if (mounted) {
+      localStorage.setItem("theme", currentTheme);
+    }
+  }, [currentTheme, mounted]);
 
   const icon = currentTheme === "dark" ? "light" : "dark";
   const nextTheme = currentTheme === "light" ? "dark" : "light";
@@ -23,7 +30,10 @@ export const ThemeToggle: React.FC = () => {
   return (
     <ToggleButton
       prefixIcon={icon}
-      onClick={() => setTheme(nextTheme)}
+      onClick={() => {
+        setTheme(nextTheme);
+        setCurrentTheme(nextTheme); // ensure state sync
+      }}
       aria-label={`Switch to ${nextTheme} mode`}
     />
   );
