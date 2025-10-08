@@ -2,14 +2,14 @@ import { type About, type Blog, type Gallery, type Home, type Newsletter, type P
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "",
-  lastName: "",
+  firstName: "Jacqueline Eliana",
+  lastName: "Mhitaryan",
   name: "Mhitaryan Works",
-  role: "",
-  avatar: "/images/logo 500x500.jpg",
+  role: "Strategic Intelligence & Communications",
+  avatar: "/images/avatar.jpg", // 1:1 image, e.g. 800x800px
   email: "jackie@mhitaryan.com",
   location: "Europe/Stockholm", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: [""], // optional: Leave the array empty if you don't want to display languages
+  languages: ["English", "Swedish", "Spanish"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter: Newsletter = {
