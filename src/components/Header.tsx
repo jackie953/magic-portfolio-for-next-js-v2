@@ -69,10 +69,20 @@ export const Header = () => {
         s={{ position: "fixed" }}
       >
         {/* LEFT SIDE: Company name */}
-        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-        <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-          Mhitaryan Works
-       </Link>
+        <Row paddingLeft="12" fillWidth vertical="center">
+        <Link 
+        href="/" 
+        style={{ 
+          textDecoration: 'none', 
+          color: 'inherit', 
+          fontSize: '1.25rem', // Bump to 20px
+          fontWeight: 700, // Go bold
+          letterSpacing: '0.02em',
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' // Force clean sans-serif
+        }}
+      >
+        Mhitaryan Works
+      </Link>
         </Row>
 
         {/* CENTER: Navigation */}
