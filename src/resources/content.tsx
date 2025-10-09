@@ -1,4 +1,4 @@
-import { type About, type Blog, type Home, type Newsletter, type Person, type Social, type Work, Services, Contact } from "@/types";
+import { type About, type Blog, type Home, type Newsletter, type Person, type Social, type Work, type Services, type Contact } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -8,7 +8,7 @@ const person: Person = {
   role: "Strategic Intelligence & Communications",
   avatar: "/images/avatar.jpg", // 1:1 image, e.g. 800x800px
   email: "jackie@mhitaryan.com",
-  location: "Stockholm, Sweden", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  location: "Europe/Stockholm", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Swedish", "Spanish"], // optional: Leave the array empty if you don't want to display languages
 };
 
