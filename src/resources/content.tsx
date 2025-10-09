@@ -4,11 +4,11 @@ import { Line, Logo, Row, Text } from "@once-ui-system/core";
 const person: Person = {
   firstName: "Jacqueline Eliana",
   lastName: "Mhitaryan",
-  name: "Mhitaryan Works",
+  name: "About Mhitaryan Works",
   role: "Strategic Intelligence & Communications",
   avatar: "/images/avatar.jpg", // 1:1 image, e.g. 800x800px
   email: "jackie@mhitaryan.com",
-  location: "Europe/Stockholm", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  location: "Stockholm, Sweden", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Swedish", "Spanish"], // optional: Leave the array empty if you don't want to display languages
 };
 
@@ -28,6 +28,11 @@ const social: Social = [
     name: "Email",
     icon: "email",
     link: "mailto:jackie@mhitaryan.com",
+  },
+    {
+    name: "WhatsApp",
+    icon: "whatsapp",
+    link: "https://wa.me/46703245598",
   },
 ];
 
@@ -64,7 +69,7 @@ const about: About = {
   title: `About – ${person.name}`,
   description: "",
   tableOfContent: {
-    display: false,
+    display: true,
     subItems: false,
   },
   avatar: {
@@ -72,122 +77,89 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/mhitaryan-works/15min",
   },
-  intro: {
+
+  // SECTION 1: Renamed from 'intro' to 'aboutSection'
+  aboutSection: {
     display: true,
-    title: "Introduction",
+    title: "",
     description: (
       <>
-          &quot;"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+        &quot;This is where you can write the main 'About' introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
       </>
     ),
   },
+
+  // SECTION 2: New Section
+  howItStarted: {
+    display: true,
+    title: "How It Started",
+    description: (
+      <>
+        This is a placeholder for the 'How It Started' section.
+      </>
+    ),
+  },
+
+  // SECTION 3: New Section
+  approach: {
+    display: true,
+    title: "Approach/Values",
+    description: (
+      <>
+        This is a placeholder for the 'Approach/Values' section.
+      </>
+    ),
+  },
+
+  // SECTION 4: New Section
+  whyWorkWithUs: {
+    display: true,
+    title: "Why Work With Us",
+    description: (
+      <>
+        This is a placeholder for the 'Why Work With Us' section.
+      </>
+    ),
+  },
+
+  // SECTION 5: This is your existing 'work' section for Experience
   work: {
-    display: false, // set to false to hide this section
-    title: "",
+    display: true,
+    title: "Experience/Background", // Updated title
     experiences: [
       {
-        company: "",
-        timeframe: "",
-        role: "",
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        company: "APCO Worldwide",
+        timeframe: "2021 - Present",
+        role: "Associate",
+        images: [],
         achievements: []
       },
-      {
-        company: "",
-        timeframe: "",
-        role: "",
-        achievements: [],
-        images: [],
-      },
+      // ... your other experiences
     ],
   },
-  studies: {
-    display: false, // set to false to hide this section
-    title: "Studies",
-    institutions: [
-      {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
-    ],
+
+  // SECTION 6: New Section
+  workingTogether: {
+    display: true,
+    title: "Working Together",
+    description: (
+      <>
+        This is a placeholder for the 'Working Together' section.
+      </>
+    ),
   },
-  technical: {
-    display: false, // set to false to hide this section
-    title: "Technical skills",
-    skills: [
-      {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
-        tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
-        title: "Next.js",
-        description: (
-          <>lorem.</>
-        ),
-        tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },  
-    ],
-  },
+
+  // We are removing the old 'studies' and 'technical' sections for now.
+  // You can add them back later if you need them.
+  studies: { display: false, title: "Studies", institutions: [] },
+  technical: { display: false, title: "Skills", skills: [] },
+  intro: {
+    display: false,
+    title: "",
+    description: undefined
+  }
 };
 
 const services = {
@@ -220,57 +192,6 @@ const work: Work = {
   description: "",
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
-};
-
-const gallery: Gallery = {
-  path: "/gallery",
-  label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by [https://lorant.one](https://lorant.one)
-  // These are placeholder images, replace with your own
-  images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
 };
 
 export { person, social, newsletter, home, about, services, contact, blog, work, gallery };

@@ -20,16 +20,10 @@ interface TableOfContentsProps {
 
 const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) => {
   const scrollTo = (id: string, offset: number) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
   };
 
   if (!about.tableOfContent.display) return null;
@@ -37,51 +31,47 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
   return (
     <Column
       left="0"
-      style={{
-        top: "50%",
-        transform: "translateY(-50%)",
-        whiteSpace: "nowrap",
-      }}
+      style={{ top: "50%", transform: "translateY(-50%)", whiteSpace: "nowrap" }}
       position="fixed"
       paddingLeft="24"
       gap="32"
       m={{ hide: true }}
+      textVariant="body-default-s"     // ✅ default text style for all children
     >
-      {structure
-        .filter((section) => section.display)
-        .map((section, sectionIndex) => (
-          <Column key={sectionIndex} gap="12">
+      {structure.filter(s => s.display).map((section) => (
+        <Column key={section.title} gap="12">
+          <Flex
+            cursor="interactive"
+            className={styles.hover}
+            gap="8"
+            vertical="center"
+            onClick={() => scrollTo(section.title, 80)}
+          >
+            <Flex height="1" minWidth="16" background="neutral-medium" />
+            <Text variant="body-default-s" onBackground="neutral-weak">
+              {section.title}            {/* ✅ explicit style for section titles */}
+            </Text>
+          </Flex>
+
+          {about.tableOfContent.subItems && section.items.map((item, i) => (
             <Flex
-              cursor="interactive"
+              l={{ hide: true }}
+              key={`${section.title}-${i}`}
+              style={{ cursor: "pointer" }}
               className={styles.hover}
-              gap="8"
+              gap="12"
+              paddingLeft="24"
               vertical="center"
-              onClick={() => scrollTo(section.title, 80)}
+              onClick={() => scrollTo(item, 80)}
             >
-              <Flex height="1" minWidth="16" background="neutral-strong"></Flex>
-              <Text>{section.title}</Text>
+              <Flex height="1" minWidth="8" background="neutral-medium" />
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                {item}                    {/* ✅ same style for sub-items */}
+              </Text>
             </Flex>
-            {about.tableOfContent.subItems && (
-              <>
-                {section.items.map((item, itemIndex) => (
-                  <Flex
-                    l={{ hide: true }}
-                    key={itemIndex}
-                    style={{ cursor: "pointer" }}
-                    className={styles.hover}
-                    gap="12"
-                    paddingLeft="24"
-                    vertical="center"
-                    onClick={() => scrollTo(item, 80)}
-                  >
-                    <Flex height="1" minWidth="8" background="neutral-strong"></Flex>
-                    <Text>{item}</Text>
-                  </Flex>
-                ))}
-              </>
-            )}
-          </Column>
-        ))}
+          ))}
+        </Column>
+      ))}
     </Column>
   );
 };
