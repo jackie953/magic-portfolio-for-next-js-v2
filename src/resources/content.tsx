@@ -1,4 +1,4 @@
-import { type About, type Blog, type Gallery, type Home, type Newsletter, type Person, type Social, type Work, Services, Contact } from "@/types";
+import { type About, type Blog, type Home, type Newsletter, type Person, type Social, type Work, Services, Contact } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -194,4 +194,4 @@ const work: Work = {
   // All projects will be listed on the /home and /work routes
 };
 
-export { person, social, newsletter, home, about, services, contact, blog, work, gallery };
+export { person, social, newsletter, home, about, services, contact, blog, work };
