@@ -114,6 +114,7 @@ export interface About extends BasePageConfig {
   approach: any;
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   howItStarted: any;
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   aboutSection: any;
   /** Table of contents configuration */
   tableOfContent: {
