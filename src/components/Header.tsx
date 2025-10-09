@@ -17,7 +17,6 @@ import {
   work,
   services,
   contact,
-  gallery,
 } from "@/resources";
 
 type TimeDisplayProps = {
@@ -121,10 +120,6 @@ export const Header = () => {
 
               {routes["/blog"] && (
                 <ToggleButton href="/blog" label={blog.label} selected={pathname.startsWith("/blog")} />
-              )}
-
-              {routes["/gallery"] && (
-                <ToggleButton href="/gallery" label={gallery.label} selected={pathname.startsWith("/gallery")} />
               )}
 
               {display.themeSwitcher && (

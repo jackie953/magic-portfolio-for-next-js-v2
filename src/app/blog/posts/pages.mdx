@@ -21,14 +21,11 @@ Magic Portfolio's `RouteGuard` component takes care of conditionally rendering p
     '/about':   true,
     '/work':    true,
     '/blog':    true,
-    '/gallery': false,
 };`,
     language: "tsx",
     label: "src/app/resources/config.js"
   }
 ]} />
-
-The code above will ensure that the `/gallery` page is not accessible and is not displayed in the navigation.
 
 ## Add new pages
 
@@ -45,7 +42,6 @@ When creating a new page, it needs to be added to the `routes` object in the `re
     '/about':   true,
     '/work':    true,
     '/blog':    true,
-    '/gallery': false,
     '/music': true,
 };`,
     language: "tsx",
