@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { getPosts } from "@/utils/utils";
 import {
   Meta,
-  Schema,
   Button,
   Column,
   Flex,
@@ -95,22 +94,10 @@ export default async function Project({
   return (
     <>
       <ScrollToHash />
+      {/* ✅ TOC IS HERE - This will show on the left side on desktop */}
       <TableOfContents structure={tocStructure} about={tocConfig} />
       
       <Column as="section" maxWidth="m" horizontal="center" gap="l">
-        <Schema
-          jsonLd={{
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: post.metadata.title,
-            description: post.metadata.summary,
-            datePublished: post.metadata.publishedAt,
-            author: {
-              "@type": "Person",
-              name: person.name,
-            },
-          }}
-        />
         <Column gap="m">
           {post.metadata.images && post.metadata.images.length > 0 && (
             <Media
