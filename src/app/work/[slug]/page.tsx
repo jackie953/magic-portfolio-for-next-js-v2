@@ -44,11 +44,12 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string | string[] };
+  params: Promise<{ slug: string | string[] }>;
 }): Promise<Metadata> {
-  const slugPath = Array.isArray(params.slug)
-    ? params.slug.join("/")
-    : params.slug || "";
+  const resolvedParams = await params;
+  const slugPath = Array.isArray(resolvedParams.slug)
+    ? resolvedParams.slug.join("/")
+    : resolvedParams.slug || "";
 
   const posts = getPosts(["src", "app", "work", "projects"]);
   const post = posts.find((post) => post.slug === slugPath);
@@ -67,11 +68,12 @@ export async function generateMetadata({
 export default async function Project({
   params,
 }: {
-  params: { slug: string | string[] };
+  params: Promise<{ slug: string | string[] }>;
 }) {
-  const slugPath = Array.isArray(params.slug)
-    ? params.slug.join("/")
-    : params.slug || "";
+  const resolvedParams = await params;
+  const slugPath = Array.isArray(resolvedParams.slug)
+    ? resolvedParams.slug.join("/")
+    : resolvedParams.slug || "";
 
   const post = getPosts(["src", "app", "work", "projects"]).find(
     (post) => post.slug === slugPath
@@ -94,7 +96,6 @@ export default async function Project({
   return (
     <>
       <ScrollToHash />
-      {/* ✅ TOC IS HERE - This will show on the left side on desktop */}
       <TableOfContents structure={tocStructure} about={tocConfig} />
       
       <Column as="section" maxWidth="m" horizontal="center" gap="l">
