@@ -58,7 +58,7 @@ const home: Home = {
   },
   subline: (
     <>
-Strategic research and communications at the intersection of politics, power, and people.
+Strategic research and communications at the intersection of power, politics, and people.
     </>
   ),
 };
