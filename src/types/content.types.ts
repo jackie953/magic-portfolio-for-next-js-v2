@@ -42,17 +42,6 @@ export type Newsletter = {
   description: React.ReactNode;
 };
 
-export type Work = {
-  path: string;
-  label: string;
-  title: string;
-  description: string;
-  tableOfContent?: {
-    display: boolean;
-    subItems: boolean;
-  };
-};
-
 /**
  * Social link configuration.
  */
@@ -240,7 +229,15 @@ export interface Blog extends BasePageConfig {}
  * Work/projects page configuration.
  * @description Configuration for the Work/Projects page, including metadata and navigation label.
  */
-export interface Work extends BasePageConfig {}
+export interface Work extends BasePageConfig {
+  /** Table of contents configuration */
+  tableOfContent?: {
+    /** Whether to display the table of contents */
+    display: boolean;
+    /** Whether to show sub-items in the table of contents */
+    subItems: boolean;
+  };
+}
 
 /**
  * Services page configuration.
