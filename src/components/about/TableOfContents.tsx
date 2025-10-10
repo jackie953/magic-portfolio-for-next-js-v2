@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 import { Column, Flex, Text } from "@once-ui-system/core";
 import styles from "./about.module.scss";
 
@@ -26,7 +26,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
     window.scrollTo({ top, behavior: "smooth" });
   };
 
-  if (!about.tableOfContent.display) return null;
+  if (!about.tableOfContent?.display) return null;
 
   return (
     <Column
@@ -36,7 +36,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
       paddingLeft="24"
       gap="32"
       m={{ hide: true }}
-      textVariant="body-default-s"     // ✅ default text style for all children
+      textVariant="body-default-s"
     >
       {structure.filter(s => s.display).map((section) => (
         <Column key={section.title} gap="12">
@@ -49,7 +49,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
           >
             <Flex height="1" minWidth="16" background="neutral-medium" />
             <Text variant="body-default-s" onBackground="neutral-weak">
-              {section.title}            {/* ✅ explicit style for section titles */}
+              {section.title}
             </Text>
           </Flex>
 
@@ -66,7 +66,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
             >
               <Flex height="1" minWidth="8" background="neutral-medium" />
               <Text variant="body-default-s" onBackground="neutral-weak">
-                {item}                    {/* ✅ same style for sub-items */}
+                {item}
               </Text>
             </Flex>
           ))}

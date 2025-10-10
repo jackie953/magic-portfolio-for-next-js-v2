@@ -3,7 +3,6 @@ import { getPosts } from "@/utils/utils";
 import {
   Meta,
   Schema,
-  AvatarGroup,
   Button,
   Column,
   Flex,
@@ -12,14 +11,29 @@ import {
   Text,
   SmartLink,
   Row,
-  Avatar,
   Line,
 } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Projects } from "@/components/work/Projects";
+import TableOfContents from "@/components/about/TableOfContents";
+
+function generateTocStructure(markdownContent: string) {
+  const structure: { title: string; display: boolean; items: string[] }[] = [];
+  const headingRegex = /^## (.*)$/gm;
+  let match: RegExpExecArray | null;
+
+  while ((match = headingRegex.exec(markdownContent)) !== null) {
+    structure.push({
+      title: match[1],
+      display: true,
+      items: [],
+    });
+  }
+  return structure;
+}
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -31,15 +45,14 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: { slug: string | string[] };
 }): Promise<Metadata> {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
+  const slugPath = Array.isArray(params.slug)
+    ? params.slug.join("/")
+    : params.slug || "";
 
   const posts = getPosts(["src", "app", "work", "projects"]);
-  let post = posts.find((post) => post.slug === slugPath);
+  const post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
 
@@ -55,83 +68,75 @@ export async function generateMetadata({
 export default async function Project({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>;
+  params: { slug: string | string[] };
 }) {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug)
-    ? routeParams.slug.join("/")
-    : routeParams.slug || "";
+  const slugPath = Array.isArray(params.slug)
+    ? params.slug.join("/")
+    : params.slug || "";
 
-  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slugPath);
+  const post = getPosts(["src", "app", "work", "projects"]).find(
+    (post) => post.slug === slugPath
+  );
 
   if (!post) {
     notFound();
   }
 
-  const avatars =
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
-    })) || [];
+  const tocStructure = generateTocStructure(post.content);
+
+  // Create a wrapper object that matches the TableOfContents interface
+  const tocConfig = {
+    tableOfContent: work.tableOfContent || {
+      display: false,
+      subItems: false,
+    },
+  };
 
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
-      <Schema
-        as="blogPosting"
-        baseURL={baseURL}
-        path={`${work.path}/${post.slug}`}
-        title={post.metadata.title}
-        description={post.metadata.summary}
-        datePublished={post.metadata.publishedAt}
-        dateModified={post.metadata.publishedAt}
-        image={
-          post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
-        }
-        author={{
-          name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-      <Column maxWidth="s" gap="16" horizontal="center" align="center">
-        <SmartLink href="/work">
-          <Text variant="label-strong-m">Projects</Text>
-        </SmartLink>
-        <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-          {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
-        </Text>
-        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
-      </Column>
-      <Row marginBottom="32" horizontal="center">
-        <Row gap="16" vertical="center">
-          {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="s" />}
-          <Text variant="label-default-m" onBackground="brand-weak">
-            {post.metadata.team?.map((member, idx) => (
-              <span key={idx}>
-                {idx > 0 && (
-                  <Text as="span" onBackground="neutral-weak">
-                    ,{" "}
-                  </Text>
-                )}
-                <SmartLink href={member.linkedIn}>{member.name}</SmartLink>
-              </span>
-            ))}
-          </Text>
-        </Row>
-      </Row>
-      {post.metadata.images.length > 0 && (
-        <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
-      )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
-        <CustomMDX source={post.content} />
-      </Column>
-      <Column fillWidth gap="40" horizontal="center" marginTop="40">
-        <Line maxWidth="40" />
-        <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-          Related projects
-        </Heading>
-        <Projects exclude={[post.slug]} range={[2]} />
-      </Column>
+    <>
       <ScrollToHash />
-    </Column>
+      <TableOfContents structure={tocStructure} about={tocConfig} />
+      
+      <Column as="section" maxWidth="m" horizontal="center" gap="l">
+        <Schema
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.metadata.title,
+            description: post.metadata.summary,
+            datePublished: post.metadata.publishedAt,
+            author: {
+              "@type": "Person",
+              name: person.name,
+            },
+          }}
+        />
+        <Column gap="m">
+          {post.metadata.images && post.metadata.images.length > 0 && (
+            <Media
+              src={post.metadata.images[0]}
+              alt={post.metadata.title}
+              aspectRatio="16 / 9"
+              radius="l"
+            />
+          )}
+          <Heading variant="display-strong-s">{post.metadata.title}</Heading>
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            {formatDate(post.metadata.publishedAt)}
+          </Text>
+        </Column>
+        <Column as="article" gap="l">
+          <CustomMDX source={post.content} />
+        </Column>
+        <Button
+          href={`${work.path}`}
+          variant="secondary"
+          size="m"
+          prefixIcon="chevronLeft"
+        >
+          Back to projects
+        </Button>
+      </Column>
+    </>
   );
 }

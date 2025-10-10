@@ -1,4 +1,4 @@
-import { type About, type Blog, type Home, type Newsletter, type Person, type Social, type Work, type Services, type Contact } from "@/types";
+import { type About, type Blog, type Home, type Newsletter, type Person, type Social, type Work, Services, Contact } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -70,7 +70,7 @@ const about: About = {
   description: "",
   tableOfContent: {
     display: true,
-    subItems: false,
+    subItems: true,
   },
   avatar: {
     display: true,
@@ -190,8 +190,10 @@ const work: Work = {
   label: "Projects",
   title: "",
   description: "",
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  tableOfContent: {
+    display: true,
+    subItems: false,
+  },
 };
 
 export { person, social, newsletter, home, about, services, contact, blog, work };

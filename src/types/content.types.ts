@@ -42,6 +42,17 @@ export type Newsletter = {
   description: React.ReactNode;
 };
 
+export type Work = {
+  path: string;
+  label: string;
+  title: string;
+  description: string;
+  tableOfContent?: {
+    display: boolean;
+    subItems: boolean;
+  };
+};
+
 /**
  * Social link configuration.
  */
