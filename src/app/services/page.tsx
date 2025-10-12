@@ -42,6 +42,7 @@ export default function Services() {
   const about = {
     tableOfContent: {
       display: true,
+      subItems: false,
     },
     calendar: {
       display: true,
@@ -59,16 +60,18 @@ export default function Services() {
         path="/services"
       />
       
-      <Column
-        left="0"
-        style={{ top: "50%", transform: "translateY(-50%)" }}
-        position="fixed"
-        paddingLeft="24"
-        gap="32"
-        s={{ hide: true }}
-      >
-        <TableOfContents structure={structure} about={about} />
-      </Column>
+      {about.tableOfContent.display && (
+        <Column
+          left="0"
+          style={{ top: "50%", transform: "translateY(-50%)" }}
+          position="fixed"
+          paddingLeft="24"
+          gap="32"
+          s={{ hide: true }}
+        >
+          <TableOfContents structure={structure} about={about} />
+        </Column>
+      )}
 
       <Column fillWidth>
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
@@ -225,7 +228,8 @@ export default function Services() {
             <Text variant="body-default-l" marginBottom="m">
               We bring the discipline to see patterns across sectors and cultures, the experience to know what's signal versus noise, and the clarity to tell you what you need to hear—not what you want to hear.
             </Text>
-            <Text variant="body-default-m" onBackground="neutral-weak" marginBottom="l" style={{ fontStyle: 'italic' }}>
+
+            <Text variant="body-default-s" onBackground="neutral-weak" marginBottom="l" style={{ fontStyle: 'italic' }}>
               Available as a retainer or on-demand for existing clients.
             </Text>
 
