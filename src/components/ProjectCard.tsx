@@ -55,7 +55,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </Flex>
         )}
         {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
-          <Column flex={7} gap="16">
+          <Column flex={7} 
+          gap="16"
+          style={{ maxWidth: "60ch" }}
+          >
             {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
             {description?.trim() && (
               <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
@@ -66,10 +69,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               {content?.trim() && (
                 <SmartLink
                   suffixIcon="arrowRight"
-                  style={{ margin: "0", width: "fit-content" }}
+                  style={{ 
+                    margin: "0", 
+                    width: "fit-content",
+                    color: "var(--brand-color)"
+                  }}
                   href={href}
                 >
-                  <Text variant="body-default-s">Read case study</Text>
+                  <Text
+                    variant="body-default-s"
+                    style={{ color: "var(--brand-color)" }}
+                  >
+                  Read case study</Text>
                 </SmartLink>
               )}
               {link && (

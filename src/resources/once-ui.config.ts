@@ -77,7 +77,7 @@ const style: StyleConfig = {
   theme: "system", // dark | light | system
   neutral: "gray", // sand | gray | slate | custom
   brand: "violet", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "violet", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
   border: "playful", // rounded | playful | conservative
@@ -108,7 +108,7 @@ const effects: EffectsConfig = {
     radius: 100,
   },
   gradient: {
-    display: false,
+    display: true,
     opacity: 100,
     x: 50,
     y: 60,
@@ -145,9 +145,9 @@ const effects: EffectsConfig = {
 const schema: SchemaConfig = {
   logo: "",
   type: "",
-  name: "",
+  name: "Mhitaryan Works",
   description: "",
-  email: "",
+  email: "jackie@mhitaryan.com",
 };
 
 // social links
@@ -161,11 +161,11 @@ const sameAs: SameAsConfig = {
 const socialSharing: SocialSharingConfig = {
   display: true,
   platforms: {
-    x: true,
+    x: false,
     linkedin: true,
     facebook: false,
     pinterest: false,
-    whatsapp: false,
+    whatsapp: true,
     reddit: false,
     telegram: false,
     email: true,

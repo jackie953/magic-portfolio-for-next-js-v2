@@ -7,6 +7,7 @@ import Link from "next/link"; // ADD THIS LINE
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
+import 'animate.css';
 
 import {
   routes,
@@ -69,19 +70,21 @@ export const Header = () => {
       >
         {/* LEFT SIDE: Company name */}
         <Row paddingLeft="12" fillWidth vertical="center">
+        <h1 className="animate__animated animate__slideInLeft animate__delay-2s animate__fast">
         <Link 
         href="/" 
         style={{ 
           textDecoration: 'none', 
-          color: 'inherit', 
+          color: 'var(--header-color)', 
           fontSize: '1.25rem', // Bump to 20px
-          fontWeight: 700, // Go bold
+          fontWeight: 600,
           letterSpacing: '0.02em',
           fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' // Force clean sans-serif
         }}
       >
         Mhitaryan Works
       </Link>
+      </h1>
         </Row>
 
         {/* CENTER: Navigation */}
