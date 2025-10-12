@@ -64,7 +64,7 @@ export default function About() {
   ];
 
   return (
-    <Column maxWidth="m">
+    <Column maxWidth="s">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -139,7 +139,7 @@ export default function About() {
           {/* SECTION 1: About */}
           {about.aboutSection.display && (
             <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              <Heading as="h2" id={about.aboutSection.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h1" id={about.aboutSection.title} variant="display-strong-s" marginBottom="m">
                 {about.aboutSection.title}
               </Heading>
               {about.aboutSection.description}
@@ -150,7 +150,7 @@ export default function About() {
           {/* SECTION 2: How It Started */}
           {about.howItStarted.display && (
             <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              <Heading as="h2" id={about.howItStarted.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h1" id={about.howItStarted.title} variant="display-strong-s" marginBottom="m">
                 {about.howItStarted.title}
               </Heading>
               {about.howItStarted.description}
@@ -161,7 +161,7 @@ export default function About() {
           {/* SECTION 3: Approach/Values */}
           {about.approach.display && (
             <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              <Heading as="h2" id={about.approach.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h1" id={about.approach.title} variant="display-strong-s" marginBottom="m">
                 {about.approach.title}
               </Heading>
               {about.approach.description}
@@ -171,36 +171,17 @@ export default function About() {
           {/* SECTION 4: Why Work With Us */}
           {about.whyWorkWithUs.display && (
             <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              <Heading as="h2" id={about.whyWorkWithUs.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h1" id={about.whyWorkWithUs.title} variant="display-strong-s" marginBottom="m">
                 {about.whyWorkWithUs.title}
               </Heading>
               {about.whyWorkWithUs.description}
-              {about.calendar.display && (
-                <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
-                  <Button
-                    id="schedule-call"
-                    data-border="rounded"
-                    href={about.calendar.link}
-                    variant="secondary"
-                    size="m"
-                    weight="default"
-                    arrowIcon
-                    className="text-neutral-900 dark:text-white"
-                  >
-                    <Row vertical="center" gap="8">
-                      <Icon name="calendar" onBackground="brand-weak" />
-                      <span>Schedule a call</span>
-                    </Row>
-                  </Button>
-                </RevealFx>
-              )}
             </Column>
           )}
 
           {/* SECTION 5: Experience/Background (This is your original 'work' section) */}
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h1" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
@@ -227,12 +208,31 @@ export default function About() {
           {/* SECTION 6: Working Together */}
           {about.workingTogether.display && (
             <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              <Heading as="h2" id={about.workingTogether.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h1" id={about.workingTogether.title} variant="display-strong-s" marginBottom="m">
                 {about.workingTogether.title}
               </Heading>
               {about.workingTogether.description}
             </Column>
           )}
+                        {about.calendar.display && (
+                <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
+                  <Button
+                    id="schedule-call"
+                    data-border="rounded"
+                    href={about.calendar.link}
+                    variant="secondary"
+                    size="m"
+                    weight="default"
+                    arrowIcon
+                    className="text-neutral-900 dark:text-white"
+                  >
+                    <Row vertical="center" gap="8">
+                      <Icon name="calendar" onBackground="brand-weak" />
+                      <span>Schedule a call</span>
+                    </Row>
+                  </Button>
+                </RevealFx>
+              )}
         </Column>
 
       {/* ================================================================== */}

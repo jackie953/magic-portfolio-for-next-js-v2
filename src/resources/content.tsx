@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Jacqueline Eliana",
   lastName: "Mhitaryan",
   name: "About Mhitaryan Works",
-  role: "Strategic Intelligence & Communications",
+  role: "",
   avatar: "/images/avatar.jpg", // 1:1 image, e.g. 800x800px
   email: "jackie@mhitaryan.com",
   location: "Europe/Stockholm", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -86,14 +86,28 @@ const about: About = {
     title: "",
     description: (
       <>
-        &quot;This is where you can write the main 'About' introduction. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;
+        <p>
+        We work at the intersection of research, strategy, and communications—helping organizations understand complex environments and act decisively.
+        </p>
+        <p>
+        Our approach is straightforward: surface what matters, cut through what doesn't, and deliver clarity when decisions can't wait. 
+        </p>
+        <p>
+        Whether that's strategic intelligence on a market entry, stakeholder mapping for a high-stakes negotiation, or communications strategy for a reputational challenge—we bring both analytical rigor and the judgment to know what moves the needle. 
+        </p>
+        <p>
+        We work across sectors, languages, and cultures, serving clients in Sweden, Spain, Europe, North America, and internationally.
+        </p>
+        <p>
+        Mhitaryan Works is led by Jacqueline Eliana Mhitaryan, a strategic research and communications specialist with over a decade of experience across public affairs, policy, business development, and civil society. Based in Stockholm, fluent in Swedish, English, and Spanish, with experience spanning UN publications, Fortune 100 and 500 strategic intelligence, and national advocacy leadership. LinkedIn
+        </p>
       </>
     ),
   },
 
   // SECTION 2: New Section
   howItStarted: {
-    display: true,
+    display: false,
     title: "How It Started",
     description: (
       <>
@@ -105,7 +119,7 @@ const about: About = {
   // SECTION 3: New Section
   approach: {
     display: true,
-    title: "Approach/Values",
+    title: "Approach",
     description: (
       <>
         This is a placeholder for the 'Approach/Values' section.
@@ -126,8 +140,8 @@ const about: About = {
 
   // SECTION 5: This is your existing 'work' section for Experience
   work: {
-    display: true,
-    title: "Experience/Background", // Updated title
+    display: false,
+    title: "Background", // Updated title
     experiences: [
       {
         company: "APCO Worldwide",
