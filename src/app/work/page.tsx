@@ -1,4 +1,4 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import { Button, Column, Heading, Icon, Meta, RevealFx, Row, Schema } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 
@@ -11,6 +11,25 @@ export async function generateMetadata() {
     path: work.path,
   });
 }
+                      {about.calendar.display && (
+                <RevealFx paddingTop="8" delay={0.4} horizontal="center" paddingLeft="12">
+                  <Button
+                    id="schedule-call"
+                    data-border="rounded"
+                    href={about.calendar.link}
+                    variant="secondary"
+                    size="m"
+                    weight="default"
+                    arrowIcon
+                    className="text-neutral-900 dark:text-white"
+                  >
+                    <Row vertical="center" gap="8">
+                      <Icon name="calendar" onBackground="brand-weak" />
+                      <span>Schedule a call</span>
+                    </Row>
+                  </Button>
+                </RevealFx>
+              )}
 
 export default function Work() {
   return (
