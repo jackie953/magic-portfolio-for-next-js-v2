@@ -21,7 +21,7 @@ export function CookieBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 start-1/2 transform -translate-x-1/2 z-[60] sm:max-w-3xl w-full mx-auto px-4 py-4">
+    <div className="fixed bottom-0 start-1/2 transform -translate-x-1/2 z-[60] sm:max-w-3xl w-full mx-auto px-4 py-6">
       <div className="p-4 bg-white border border-gray-200 rounded-xl shadow-2xl dark:bg-neutral-900 dark:border-neutral-800 flex items-center justify-between gap-4">
         <div className="flex-1 flex items-center justify-center">
           <Text variant="body-default-s" onBackground="neutral-weak">

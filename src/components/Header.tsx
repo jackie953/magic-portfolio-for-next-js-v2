@@ -70,7 +70,6 @@ export const Header = () => {
       >
         {/* LEFT SIDE: Company name */}
         <Row paddingLeft="12" fillWidth vertical="center">
-        <h1 className="animate__animated animate__slideInLeft animate__delay-2s animate__fast">
         <Link 
         href="/" 
         style={{ 
@@ -84,7 +83,6 @@ export const Header = () => {
       >
         Mhitaryan Works
       </Link>
-      </h1>
         </Row>
 
         {/* CENTER: Navigation */}
