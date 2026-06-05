@@ -23,7 +23,7 @@ const routes: RoutesConfig = {
   "/services": true,
   "/contact": false,
   "/blog": false,
-  "/privacy": false,
+  "/privacy": true,
 };
 
 const display: DisplayConfig = {
