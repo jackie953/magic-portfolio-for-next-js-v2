@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       <Column gap="m">
         <Heading variant="heading-strong-m">1. Who We Are</Heading>
         <Text variant="body-default-m" onBackground="neutral-weak">
-          Mhitaryan Works is an independent consultancy based in Sweden and operating within the EU
+          Jacqueline Mhitaryan is an independent consultancy based in Sweden and operating within the EU
           and internationally. We respect your privacy and are committed to protecting your personal
           data in line with the General Data Protection Regulation (GDPR).
         </Text>

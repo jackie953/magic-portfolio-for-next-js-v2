@@ -122,7 +122,7 @@ const InteractiveCTA = ({
                 exit={{ x: -10, opacity: 0 }}
                 transition={{ duration: 0.1, ease: 'linear', delay: 0.1, staggerChildren: 0.1 }}
                 key="navigation-buttons"
-                className="flex flex-col mt-4"
+                className="flex flex-col mt-4 pb-3"
               >
                 {navigationLinks.map((link, index) => (
                   <NavigationButton

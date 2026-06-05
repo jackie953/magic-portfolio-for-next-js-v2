@@ -49,7 +49,7 @@ const bookingConfig: BookingCTAConfig = {
   display: true,
   title: "Book a Discovery Call",
   description: "Arrange a no-obligation consultation to explore how we can work together.",
-  calendlyUrl: "https://cal.com/mhitaryan-works/15min", // Replace when ready
+  calendlyUrl: "https://cal.com/mhitaryan",
   effects: {
     mask: { x: 50, y: 0, radius: 100, cursor: true },
     gradient: {
@@ -87,8 +87,19 @@ const bookingConfig: BookingCTAConfig = {
   },
 };
 
-export const BookingCTA: React.FC<React.ComponentProps<typeof Column>> = ({ ...flex }) => {
+interface BookingCTAOverrides {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonHref?: string;
+}
+
+export const BookingCTA: React.FC<React.ComponentProps<typeof Column> & BookingCTAOverrides> = ({ title, description, buttonText, buttonHref, ...flex }) => {
   if (!bookingConfig.display) return null;
+  const displayTitle = title ?? bookingConfig.title;
+  const displayDescription = description ?? bookingConfig.description;
+  const displayButtonText = buttonText ?? "Book Now";
+  const displayButtonHref = buttonHref ?? bookingConfig.calendlyUrl;
 
   return (
     <Column
@@ -148,21 +159,21 @@ export const BookingCTA: React.FC<React.ComponentProps<typeof Column>> = ({ ...f
       
       <Column maxWidth="xs" horizontal="center">
         <Heading marginBottom="s" variant="display-strong-xs">
-          {bookingConfig.title}
+          {displayTitle}
         </Heading>
         <Text wrap="balance" marginBottom="l" variant="body-default-l" onBackground="neutral-weak">
-          {bookingConfig.description}
+          {displayDescription}
         </Text>
       </Column>
       
-      <a 
-        href={bookingConfig.calendlyUrl}
-        target="_blank"
+      <a
+        href={displayButtonHref}
+        target={displayButtonHref.startsWith('mailto') ? '_self' : '_blank'}
         rel="noopener noreferrer"
         style={{ textDecoration: 'none', width: '100%', maxWidth: '384px' }}
       >
         <Button size="m" fillWidth>
-          Book Now
+          {displayButtonText}
         </Button>
       </a>
     </Column>

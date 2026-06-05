@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Background,
   Button,
   Column,
   Heading,
@@ -14,6 +15,7 @@ import {
   RevealFx,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
+import { BookingCTA } from "@/components/BookingCTA";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
@@ -29,7 +31,6 @@ export async function generateMetadata() {
 }
 
 export default function About() {
-  // This 'structure' constant is now correct and matches your new content.
   const structure = [
     {
       title: about.aboutSection.title,
@@ -37,28 +38,8 @@ export default function About() {
       items: [],
     },
     {
-      title: about.howItStarted.title,
-      display: about.howItStarted.display,
-      items: [],
-    },
-    {
       title: about.approach.title,
       display: about.approach.display,
-      items: [],
-    },
-    {
-      title: about.whyWorkWithUs.title,
-      display: about.whyWorkWithUs.display,
-      items: [],
-    },
-    {
-      title: about.work.title,
-      display: about.work.display,
-      items: about.work.experiences.map((experience) => experience.company),
-    },
-    {
-      title: about.workingTogether.title,
-      display: about.workingTogether.display,
       items: [],
     },
   ];
@@ -78,18 +59,6 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      {about.tableOfContent.display && (
-        <Column
-          left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
-          position="fixed"
-          paddingLeft="24"
-          gap="32"
-          s={{ hide: true }}
-        >
-          <TableOfContents structure={structure} about={about} />
-        </Column>
-      )}
       
       {/* ================================================================== */}
       {/* CHANGE THIS LINE: Replaced <Row> with <Column> and removed props   */}
@@ -116,32 +85,45 @@ export default function About() {
 
         {/* This is your main content column */}
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
-          {/* Main Header */}
-          <Column
-            id={about.aboutSection.title} // <-- UPDATED from intro.title
+          {/* Main Header — two-column intro */}
+          <Row
             fillWidth
-            minHeight="160"
             vertical="center"
-            marginBottom="32"
+            gap="xl"
+            marginBottom="40"
+            marginTop="32"
           >
-            <Heading className={styles.textAlign} variant="display-strong-xl">
-              {person.name}
-            </Heading>
-            <Text
-              className={styles.textAlign}
-              variant="display-default-xs"
-              onBackground="neutral-weak"
-            >
-              {person.role}
-            </Text>
-          </Column>
-
-          {/* SECTION 1: About */}
-          {about.aboutSection.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              <Heading as="h1" id={about.aboutSection.title} variant="display-strong-s" marginBottom="m">
-                {about.aboutSection.title}
+            <Column gap="s" flex={1}>
+              <Heading variant="display-strong-m">
+                {person.name}
               </Heading>
+              <Text variant="body-default-l" onBackground="neutral-weak">
+                Clear thinking. Direct communication.
+              </Text>
+            </Column>
+            <div style={{
+              flexShrink: 0,
+              width: '220px',
+              height: '220px',
+              borderRadius: '50%',
+              overflow: 'hidden',
+            }}>
+              <img
+                src="/images/avatar.jpg"
+                alt={person.name}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+            </div>
+          </Row>
+
+          {/* SECTION 1: Background (no heading) */}
+          {about.aboutSection.display && (
+            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="s">
               {about.aboutSection.description}
             </Column>
           )}
@@ -150,7 +132,7 @@ export default function About() {
           {/* SECTION 2: How It Started */}
           {about.howItStarted.display && (
             <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              <Heading as="h1" id={about.howItStarted.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h1" id={about.howItStarted.title} variant="heading-strong-l" marginBottom="4" style={{ marginTop: '8px' }}>
                 {about.howItStarted.title}
               </Heading>
               {about.howItStarted.description}
@@ -158,10 +140,10 @@ export default function About() {
             </Column>
           )}
 
-          {/* SECTION 3: Approach/Values */}
+          {/* SECTION 3: Approach */}
           {about.approach.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              <Heading as="h1" id={about.approach.title} variant="display-strong-s" marginBottom="m">
+            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="m">
+              <Heading as="h1" id={about.approach.title} variant="heading-strong-l" marginBottom="4" style={{ marginTop: '4px' }}>
                 {about.approach.title}
               </Heading>
               {about.approach.description}
@@ -171,7 +153,7 @@ export default function About() {
           {/* SECTION 4: Why Work With Us */}
           {about.whyWorkWithUs.display && (
             <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              <Heading as="h1" id={about.whyWorkWithUs.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h1" id={about.whyWorkWithUs.title} variant="heading-strong-l" marginBottom="4" style={{ marginTop: '8px' }}>
                 {about.whyWorkWithUs.title}
               </Heading>
               {about.whyWorkWithUs.description}
@@ -181,7 +163,7 @@ export default function About() {
           {/* SECTION 5: Experience/Background (This is your original 'work' section) */}
           {about.work.display && (
             <>
-              <Heading as="h1" id={about.work.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h1" id={about.work.title} variant="heading-strong-l" marginBottom="4" style={{ marginTop: '8px' }}>
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
@@ -208,31 +190,27 @@ export default function About() {
           {/* SECTION 6: Working Together */}
           {about.workingTogether.display && (
             <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              <Heading as="h1" id={about.workingTogether.title} variant="display-strong-s" marginBottom="m">
+              <Heading as="h1" id={about.workingTogether.title} variant="heading-strong-l" marginBottom="4" style={{ marginTop: '8px' }}>
                 {about.workingTogether.title}
               </Heading>
               {about.workingTogether.description}
             </Column>
           )}
-                        {about.calendar.display && (
-                <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
-                  <Button
-                    id="schedule-call"
-                    data-border="rounded"
-                    href={about.calendar.link}
-                    variant="secondary"
-                    size="m"
-                    weight="default"
-                    arrowIcon
-                    className="text-neutral-900 dark:text-white"
-                  >
-                    <Row vertical="center" gap="8">
-                      <Icon name="calendar" onBackground="brand-weak" />
-                      <span>Schedule a call</span>
-                    </Row>
-                  </Button>
-                </RevealFx>
-              )}
+          <Text
+            variant="body-default-l"
+            onBackground="neutral-weak"
+            style={{ fontStyle: 'italic' }}
+            marginBottom="xl"
+          >
+            CV available upon request.
+          </Text>
+
+          <BookingCTA
+            title="Let's talk."
+            description="If you think there might be something here, I'm easy to reach."
+            buttonText="Send an email"
+            buttonHref="mailto:jackie@mhitaryan.com"
+          />
         </Column>
 
       {/* ================================================================== */}

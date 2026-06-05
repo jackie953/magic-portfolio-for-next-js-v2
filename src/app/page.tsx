@@ -10,6 +10,7 @@ import {
   Schema,
   Meta,
   Line,
+  Background,
 } from "@once-ui-system/core";
 import { home, about, services, contact, person, baseURL, routes } from "@/resources";
 import { BookingCTA } from "@/components/BookingCTA";
@@ -80,18 +81,42 @@ export default function Home() {
               </Text>
             </RevealFx>
             <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
-              <Button
-                id="learn-more"
-                data-border="rounded"
-                href={services.path}
-                variant="secondary"
-                size="m"
-                weight="default"
-                arrowIcon
-                className="text-neutral-900 dark:text-white"
+              <Column
+                position="relative"
+                overflow="hidden"
+                radius="l"
+                style={{ display: 'inline-flex' }}
               >
-                Learn More
-              </Button> 
+                <Background
+                  position="absolute"
+                  top="0"
+                  mask={{ x: 50, y: 50, radius: 80, cursor: true }}
+                  gradient={{
+                    display: true,
+                    opacity: 60,
+                    x: 50,
+                    y: 0,
+                    width: 100,
+                    height: 100,
+                    tilt: 0,
+                    colorStart: "accent-background-strong",
+                    colorEnd: "static-transparent",
+                  }}
+                />
+                <Button
+                  id="learn-more"
+                  data-border="rounded"
+                  href={services.path}
+                  variant="secondary"
+                  size="m"
+                  weight="default"
+                  arrowIcon
+                  className="text-neutral-900 dark:text-white"
+                  style={{ border: '1px solid var(--neutral-alpha-medium)' }}
+                >
+                  Learn More
+                </Button>
+              </Column>
             </RevealFx>
           </Column>
         </Column>
@@ -118,7 +143,12 @@ export default function Home() {
           </Column>
         )}
         <Projects range={[2]} />
-        <BookingCTA />
+        <BookingCTA
+          title="Work with me."
+          description="A short conversation to explore whether there's a fit."
+          buttonText="Get in touch"
+          buttonHref="mailto:jackie@mhitaryan.com"
+        />
       </Column>
       <CookieBanner />
     </>

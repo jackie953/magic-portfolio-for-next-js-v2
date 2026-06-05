@@ -81,7 +81,7 @@ export const Header = () => {
           fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' // Force clean sans-serif
         }}
       >
-        Mhitaryan Works
+        Jacqueline Mhitaryan
       </Link>
         </Row>
 

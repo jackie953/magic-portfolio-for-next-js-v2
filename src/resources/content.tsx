@@ -80,62 +80,47 @@ const about: About = {
     link: "https://cal.com/mhitaryan",
   },
 
-  // SECTION 1: Renamed from 'intro' to 'aboutSection'
+  // SECTION 1: Background
   aboutSection: {
     display: true,
-    title: "",
+    title: "Background",
     description: (
       <>
         <p>
-        We work at the intersection of research, strategy, and communications—helping organizations understand complex environments and act decisively.
-        </p>
-        <p>
-        Our approach is straightforward: surface what matters, cut through what doesn't, and deliver clarity when decisions can't wait. 
-        </p>
-        <p>
-        Whether that's strategic intelligence on a market entry, stakeholder mapping for a high-stakes negotiation, or communications strategy for a reputational challenge—we bring both analytical rigor and the judgment to know what moves the needle. 
-        </p>
-        <p>
-        We work across sectors, languages, and cultures, serving clients in Sweden, Spain, Europe, North America, and internationally.
-        </p>
-        <p>
-        Mhitaryan Works is led by Jacqueline Eliana Mhitaryan, a strategic research and communications specialist with over a decade of experience across public affairs, policy, business development, and civil society. Based in Stockholm, fluent in Swedish, English, and Spanish, with experience spanning UN publications, Fortune 100 and 500 strategic intelligence, and national advocacy leadership. LinkedIn
+        I have spent over a decade working across strategic research, communications, and public affairs — in consulting, civil society, and international contexts. Ultimately the work is an extension of who I am: someone who reads, thinks, writes, and builds things. I come from a culturally mixed background and have lived and worked across several countries. I am based in Stockholm and work in Swedish, English, and Spanish.
         </p>
       </>
     ),
   },
 
-  // SECTION 2: New Section
+  // SECTION 2: (disabled)
   howItStarted: {
     display: false,
     title: "How It Started",
-    description: (
-      <>
-        This is a placeholder for the 'How It Started' section.
-      </>
-    ),
+    description: (<></>),
   },
 
-  // SECTION 3: New Section
+  // SECTION 3: Approach
   approach: {
     display: true,
     title: "Approach",
     description: (
       <>
-        This is a placeholder for the 'Approach/Values' section.
+        <p>
+        I work with precision and without unnecessary complexity. Research is thorough, analysis is grounded, and communication is direct — adapted to context, not templated. Strategy and execution are not separate things; I do both.
+        </p>
+        <p>
+        Most of my work sits at the boundary between sectors or disciplines: policy and communications, research and strategy, local context and international relevance. That's where I'm most useful — translating between worlds, identifying what others miss, and delivering work that holds up under scrutiny.
+        </p>
       </>
     ),
   },
 
-  // SECTION 4: New Section
+  // SECTION 4: (disabled)
   whyWorkWithUs: {
-    display: true,
+    display: false,
     title: "Why Work With Us",
-    description: (
-      <>
-        This is a placeholder for the 'Why Work With Us' section.
-      </>
-    ),
+    description: (<></>),
   },
 
   // SECTION 5: This is your existing 'work' section for Experience
@@ -154,9 +139,9 @@ const about: About = {
     ],
   },
 
-  // SECTION 6: New Section
+  // SECTION 6: (disabled)
   workingTogether: {
-    display: true,
+    display: false,
     title: "Working Together",
     description: (
       <>
