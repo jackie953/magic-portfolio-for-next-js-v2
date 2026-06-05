@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Heading, Text, Background, Column } from "@once-ui-system/core";
+import { Button, Heading, Text, Column } from "@once-ui-system/core";
 import type { opacity, SpacingToken } from "@once-ui-system/core";
 
 interface BookingCTAConfig {
@@ -114,48 +114,11 @@ export const BookingCTA: React.FC<React.ComponentProps<typeof Column> & BookingC
       border="neutral-alpha-weak"
       {...flex}
     >
-      <Background
-        top="0"
-        position="absolute"
-        mask={{
-          x: bookingConfig.effects.mask.x,
-          y: bookingConfig.effects.mask.y,
-          radius: bookingConfig.effects.mask.radius,
-          cursor: bookingConfig.effects.mask.cursor,
-        }}
-        gradient={{
-          display: bookingConfig.effects.gradient.display,
-          opacity: bookingConfig.effects.gradient.opacity as opacity,
-          x: bookingConfig.effects.gradient.x,
-          y: bookingConfig.effects.gradient.y,
-          width: bookingConfig.effects.gradient.width,
-          height: bookingConfig.effects.gradient.height,
-          tilt: bookingConfig.effects.gradient.tilt,
-          colorStart: bookingConfig.effects.gradient.colorStart,
-          colorEnd: bookingConfig.effects.gradient.colorEnd,
-        }}
-        dots={{
-          display: bookingConfig.effects.dots.display,
-          opacity: bookingConfig.effects.dots.opacity as opacity,
-          size: bookingConfig.effects.dots.size as SpacingToken,
-          color: bookingConfig.effects.dots.color,
-        }}
-        grid={{
-          display: bookingConfig.effects.grid.display,
-          opacity: bookingConfig.effects.grid.opacity as opacity,
-          color: bookingConfig.effects.grid.color,
-          width: bookingConfig.effects.grid.width,
-          height: bookingConfig.effects.grid.height,
-        }}
-        lines={{
-          display: bookingConfig.effects.lines.display,
-          opacity: bookingConfig.effects.lines.opacity as opacity,
-          size: bookingConfig.effects.lines.size as SpacingToken,
-          thickness: bookingConfig.effects.lines.thickness,
-          angle: bookingConfig.effects.lines.angle,
-          color: bookingConfig.effects.lines.color,
-        }}
-      />
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse at 50% 0%, var(--accent-background-strong, rgba(120,80,200,0.35)) 0%, transparent 70%)',
+        opacity: bookingConfig.effects.gradient.opacity / 100,
+      }} />
       
       <Column maxWidth="xs" horizontal="center">
         <Heading marginBottom="s" variant="display-strong-xs">

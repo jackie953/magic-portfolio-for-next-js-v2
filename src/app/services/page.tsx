@@ -8,7 +8,6 @@ import {
   Row,
   Icon,
   RevealFx,
-  Background,
 } from "@once-ui-system/core";
 import { baseURL } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -179,22 +178,11 @@ export default function Services() {
                   radius="l"
                   style={{ display: 'inline-flex' }}
                 >
-                  <Background
-                    position="absolute"
-                    top="0"
-                    mask={{ x: 50, y: 50, radius: 80, cursor: true }}
-                    gradient={{
-                      display: true,
-                      opacity: 60,
-                      x: 50,
-                      y: 0,
-                      width: 100,
-                      height: 100,
-                      tilt: 0,
-                      colorStart: "accent-background-strong",
-                      colorEnd: "static-transparent",
-                    }}
-                  />
+                  <div style={{
+                    position: 'absolute', inset: 0, pointerEvents: 'none',
+                    background: 'radial-gradient(ellipse at 50% 0%, var(--accent-background-strong, rgba(120,80,200,0.35)) 0%, transparent 70%)',
+                    opacity: 0.6, borderRadius: 'inherit',
+                  }} />
                   <Button
                     id="schedule-call"
                     data-border="rounded"

@@ -7,7 +7,6 @@ import Script from "next/script";
 import classNames from "classnames";
 
 import {
-  Background,
   Column,
   Flex,
   Meta,
@@ -70,46 +69,11 @@ export default function RootLayout({
               horizontal="center"
             >
               <RevealFx fill position="absolute">
-                <Background
-                  mask={{
-                    x: effects.mask.x,
-                    y: effects.mask.y,
-                    radius: effects.mask.radius,
-                    cursor: effects.mask.cursor,
-                  }}
-                  gradient={{
-                    display: effects.gradient.display,
-                    opacity: effects.gradient.opacity as opacity,
-                    x: effects.gradient.x,
-                    y: effects.gradient.y,
-                    width: effects.gradient.width,
-                    height: effects.gradient.height,
-                    tilt: effects.gradient.tilt,
-                    colorStart: effects.gradient.colorStart,
-                    colorEnd: effects.gradient.colorEnd,
-                  }}
-                  dots={{
-                    display: effects.dots.display,
-                    opacity: effects.dots.opacity as opacity,
-                    size: effects.dots.size as SpacingToken,
-                    color: effects.dots.color,
-                  }}
-                  grid={{
-                    display: effects.grid.display,
-                    opacity: effects.grid.opacity as opacity,
-                    color: effects.grid.color,
-                    width: effects.grid.width,
-                    height: effects.grid.height,
-                  }}
-                  lines={{
-                    display: effects.lines.display,
-                    opacity: effects.lines.opacity as opacity,
-                    size: effects.lines.size as SpacingToken,
-                    thickness: effects.lines.thickness,
-                    angle: effects.lines.angle,
-                    color: effects.lines.color,
-                  }}
-                />
+                <div style={{
+                  position: 'absolute', inset: 0, pointerEvents: 'none',
+                  background: 'radial-gradient(ellipse at 50% 0%, var(--accent-background-strong, rgba(120,80,200,0.35)) 0%, transparent 70%)',
+                  opacity: (effects.gradient.opacity ?? 100) / 100,
+                }} />
               </RevealFx>
 
               <Flex fillWidth minHeight="16" s={{ hide: true }} />

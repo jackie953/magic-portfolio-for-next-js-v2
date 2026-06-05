@@ -1,6 +1,5 @@
 import {
   Avatar,
-  Background,
   Button,
   Column,
   Heading,
