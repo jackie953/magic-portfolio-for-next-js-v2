@@ -2,9 +2,9 @@ import { type About, type Blog, type Home, type Newsletter, type Person, type So
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Jacqueline Eliana",
+  firstName: "Jacqueline",
   lastName: "Mhitaryan",
-  name: "About Mhitaryan Works",
+  name: "Jacqueline Mhitaryan",
   role: "",
   avatar: "/images/avatar.jpg", // 1:1 image, e.g. 800x800px
   email: "jackie@mhitaryan.com",
@@ -77,7 +77,7 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com/mhitaryan-works/15min",
+    link: "https://cal.com/mhitaryan",
   },
 
   // SECTION 1: Renamed from 'intro' to 'aboutSection'

@@ -22,7 +22,7 @@ import CTAWrapper from "@/components/CTAWrapper";
 
 export function generateMetadata() {
   return Meta.generate({
-    title: "Mhitaryan Works – Strategic Intelligence & Communications",
+    title: home.title,
     description: home.description,
     baseURL: baseURL,
     path: home.path,

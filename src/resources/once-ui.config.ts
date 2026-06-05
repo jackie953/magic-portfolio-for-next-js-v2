@@ -19,11 +19,11 @@ const baseURL: string = "https://demo.magic-portfolio.com";
 const routes: RoutesConfig = {
   "/": true,
   "/about": true,
-  "/work": true,
+  "/work": false,
   "/services": true,
   "/contact": false,
   "/blog": false,
-  "/privacy": true,
+  "/privacy": false,
 };
 
 const display: DisplayConfig = {
@@ -146,7 +146,7 @@ const effects: EffectsConfig = {
 const schema: SchemaConfig = {
   logo: "",
   type: "",
-  name: "Mhitaryan Works",
+  name: "Jacqueline Mhitaryan",
   description: "",
   email: "jackie@mhitaryan.com",
 };
