@@ -68,17 +68,20 @@ export const Header = () => {
         data-border="rounded"
         s={{ position: "fixed" }}
       >
-        {/* LEFT SIDE: Company name — hidden on mobile */}
-        <Row paddingLeft="12" fillWidth vertical="center" s={{ hide: true }}>
+        {/* LEFT SIDE: Company name */}
+        <Row paddingLeft="12" fillWidth vertical="center">
         <Link
         href="/"
         style={{
           textDecoration: 'none',
           color: 'var(--header-color)',
-          fontSize: '1.25rem',
+          fontSize: 'clamp(0.85rem, 2.8vw, 1.25rem)',
           fontWeight: 600,
           letterSpacing: '0.02em',
-          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
         }}
       >
         Jacqueline Mhitaryan

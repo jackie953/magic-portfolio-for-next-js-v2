@@ -102,8 +102,8 @@ export default function About() {
             </Column>
             <div style={{
               flexShrink: 0,
-              width: '220px',
-              height: '220px',
+              width: 'clamp(100px, 30vw, 220px)',
+              height: 'clamp(100px, 30vw, 220px)',
               borderRadius: '50%',
               overflow: 'hidden',
             }}>

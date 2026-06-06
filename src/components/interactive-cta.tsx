@@ -74,7 +74,7 @@ const InteractiveCTA = ({
   }, [isOpen]);
 
   return (
-    <div ref={containerRef} className={cn('fixed z-50 bottom-24 right-4 sm:bottom-6 sm:right-6 overflow-hidden', className)}>
+    <div ref={containerRef} className={cn('fixed z-50 bottom-4 right-4 sm:bottom-6 sm:right-6 overflow-hidden', className)}>
       <AnimatePresence mode="popLayout">
         <motion.div
           animate={{
