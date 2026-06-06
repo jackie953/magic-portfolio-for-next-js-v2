@@ -82,7 +82,7 @@ export default function Services() {
             marginBottom="20"
             marginTop="32"
           >
-            <Heading className={styles.textAlign} variant="display-strong-m">
+            <Heading variant="display-strong-m">
               Services
             </Heading>
           </Column>
