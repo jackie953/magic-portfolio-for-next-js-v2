@@ -73,6 +73,21 @@
   animation: toc-fade-in 0.6s ease 0.3s both;
 }
 
+/* Mobile typography — About & Services pages */
+@media (max-width: 768px) {
+  /* Reduce body text to ~15px on About and Services */
+  .page-about .font-body.font-default.font-l,
+  .page-services .font-body.font-default.font-l {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Services: extra breathing room on bullet lists */
+  .page-services li.font-body.font-default.font-l {
+    margin-bottom: 0.35rem !important;
+  }
+}
+
 /* Scale down display headings on mobile */
 @media (max-width: 768px) {
   .font-display {

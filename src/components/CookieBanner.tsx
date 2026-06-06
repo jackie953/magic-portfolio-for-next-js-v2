@@ -18,6 +18,9 @@ export function CookieBanner() {
     setIsVisible(false);
   };
 
+  // HIDDEN: cookie banner temporarily disabled — remove this line to restore
+  return null;
+  // eslint-disable-next-line no-unreachable
   if (!isVisible) return null;
 
   return (

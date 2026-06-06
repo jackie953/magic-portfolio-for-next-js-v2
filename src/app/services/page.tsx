@@ -51,7 +51,7 @@ export default function Services() {
   };
 
   return (
-    <Column maxWidth="s">
+    <Column maxWidth="s" className="page-services">
       <Schema
         as="webPage"
         baseURL={baseURL}
