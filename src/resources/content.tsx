@@ -40,7 +40,7 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: "",
+  title: "Jacqueline Mhitaryan",
   description: "",
   headline: <>Clarity and Courage When It Matters Most</>,
   featured: {
@@ -87,7 +87,10 @@ const about: About = {
     description: (
       <>
         <p>
-        I have spent over a decade working across strategic research, communications, and public affairs — in consulting, civil society, and international contexts. Ultimately the work is an extension of who I am: someone who reads, thinks, writes, and builds things. I come from a culturally mixed background and have lived and worked across several countries. I am based in Stockholm and work in Swedish, English, and Spanish.
+        I have spent over a decade working across strategic research, communications, and public affairs — in consulting, civil society, and international contexts. Clients have included government agencies, trade associations, and Fortune 500 companies, alongside NGOs, think tanks, and smaller mission-driven organizations.
+        </p>
+        <p>
+        Ultimately the work is an extension of who I am: someone who reads, thinks, writes, and builds things. I come from a culturally mixed background and have lived and worked across several countries. I am based in Stockholm and work in Swedish, English, and Spanish.
         </p>
       </>
     ),
@@ -107,7 +110,7 @@ const about: About = {
     description: (
       <>
         <p>
-        I work with precision and without unnecessary complexity. Research is thorough, analysis is grounded, and communication is direct — adapted to context, not templated. Strategy and execution are not separate things; I do both.
+        I work with precision and without unnecessary complexity. Research is thorough, analysis is grounded, and communication is direct — adapted to context. Strategy and execution are not separate things; I do both.
         </p>
         <p>
         Most of my work sits at the boundary between sectors or disciplines: policy and communications, research and strategy, local context and international relevance. That's where I'm most useful — translating between worlds, identifying what others miss, and delivering work that holds up under scrutiny.

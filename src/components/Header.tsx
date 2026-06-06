@@ -68,17 +68,17 @@ export const Header = () => {
         data-border="rounded"
         s={{ position: "fixed" }}
       >
-        {/* LEFT SIDE: Company name */}
-        <Row paddingLeft="12" fillWidth vertical="center">
-        <Link 
-        href="/" 
-        style={{ 
-          textDecoration: 'none', 
-          color: 'var(--header-color)', 
-          fontSize: '1.25rem', // Bump to 20px
+        {/* LEFT SIDE: Company name — hidden on mobile */}
+        <Row paddingLeft="12" fillWidth vertical="center" s={{ hide: true }}>
+        <Link
+        href="/"
+        style={{
+          textDecoration: 'none',
+          color: 'var(--header-color)',
+          fontSize: '1.25rem',
           fontWeight: 600,
           letterSpacing: '0.02em',
-          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' // Force clean sans-serif
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
         }}
       >
         Jacqueline Mhitaryan
@@ -133,8 +133,8 @@ export const Header = () => {
           </Row>
         </Row>
 
-        {/* RIGHT SIDE: Timezone */}
-        <Flex fillWidth horizontal="end" vertical="center">
+        {/* RIGHT SIDE: Timezone — hidden on mobile */}
+        <Flex fillWidth horizontal="end" vertical="center" s={{ hide: true }}>
           <Flex paddingRight="12" horizontal="end" vertical="center" textVariant="body-default-s">
             Europe/Stockholm
           </Flex>

@@ -1,7 +1,6 @@
 'use client';
 
-import type React from 'react';
-import { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { IconBrandX, IconMail } from '@tabler/icons-react';
 import { MessageCircle, X } from 'lucide-react';
@@ -57,13 +56,25 @@ const InteractiveCTA = ({
   closeIcon,
   openWidth = '310px',
   closeWidth = '50px',
-  openHeight = '155px',
+  openHeight = '195px',
   closeHeight = '50px'
 }: InteractiveCTAProps) => {
   const [isOpen, setIsOpen] = useState(initialOpen);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
 
   return (
-    <div className={cn('fixed z-50 bottom-8 right-6 sm:bottom-6 sm:right-6 overflow-hidden', className)}>
+    <div ref={containerRef} className={cn('fixed z-50 bottom-24 right-4 sm:bottom-6 sm:right-6 overflow-hidden', className)}>
       <AnimatePresence mode="popLayout">
         <motion.div
           animate={{
@@ -72,6 +83,7 @@ const InteractiveCTA = ({
             borderColor: !isOpen ? '#3F3F46' : '#888888'
           }}
           transition={{ type: 'spring', stiffness: 300, damping: 27 }}
+          style={{ maxWidth: 'calc(100vw - 48px)' }}
           className="flex-col border-[2px] rounded-xl border-white/5 bg-zinc-900 flex items-center justify-center relative"
         >
           {!isOpen && (
@@ -122,7 +134,7 @@ const InteractiveCTA = ({
                 exit={{ x: -10, opacity: 0 }}
                 transition={{ duration: 0.1, ease: 'linear', delay: 0.1, staggerChildren: 0.1 }}
                 key="navigation-buttons"
-                className="flex flex-col mt-4 pb-3"
+                className="flex flex-col mt-5 pb-3"
               >
                 {navigationLinks.map((link, index) => (
                   <NavigationButton

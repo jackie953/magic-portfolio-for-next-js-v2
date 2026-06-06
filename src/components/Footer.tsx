@@ -22,8 +22,8 @@ export const Footer = () => {
         }}
       >
         <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">Jacqueline Mhitaryan</Text>
+          <Text onBackground="neutral-weak">© {currentYear} / </Text>
+          <Text>Jacqueline Mhitaryan</Text>
         </Text>
         <Row gap="16">
           {social.map(

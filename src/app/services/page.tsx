@@ -186,7 +186,7 @@ export default function Services() {
                   <Button
                     id="schedule-call"
                     data-border="rounded"
-                    href="https://cal.com/mhitaryan"
+                    href="mailto:jackie@mhitaryan.com"
                     variant="secondary"
                     size="l"
                     style={{ paddingInline: '2rem', paddingBlock: '0.875rem', fontSize: '1.05rem', border: '1px solid var(--neutral-alpha-medium)' }}
@@ -195,8 +195,8 @@ export default function Services() {
                     className="text-neutral-900 dark:text-white"
                   >
                     <Row vertical="center" gap="8">
-                      <Icon name="calendar" onBackground="brand-weak" />
-                      <span>Schedule a call</span>
+                      <Icon name="email" onBackground="brand-weak" />
+                      <span>Get in touch</span>
                     </Row>
                   </Button>
                 </Column>
