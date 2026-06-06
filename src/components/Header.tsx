@@ -70,7 +70,6 @@ const MobileThemeRow: React.FC = () => {
   };
 
   const label = currentTheme === "light" ? "Dark mode" : "Light mode";
-  const icon  = currentTheme === "light" ? "🌙" : "☀️";
 
   return (
     <button
@@ -90,7 +89,10 @@ const MobileThemeRow: React.FC = () => {
       }}
     >
       <span>{label}</span>
-      <span style={{ fontSize: "1.1rem" }}>{icon}</span>
+      {/* Render the real icon but block its own click so the row button handles it */}
+      <span style={{ pointerEvents: "none" }}>
+        <ThemeToggle />
+      </span>
     </button>
   );
 };

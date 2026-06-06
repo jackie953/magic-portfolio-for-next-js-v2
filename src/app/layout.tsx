@@ -82,7 +82,7 @@ export default function RootLayout({
               <Flex fillWidth minHeight="16" s={{ hide: true }} />
               <Header />
               {/* Spacer so content starts below the fixed header on mobile */}
-              <Flex fillWidth hide s={{ hide: false, minHeight: "16" }} />
+              <Flex fillWidth hide s={{ hide: false }} style={{ height: '64px', flexShrink: 0 }} />
               <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
                 <Flex horizontal="center" fillWidth minHeight="0">
                   <RouteGuard>{children}</RouteGuard>
