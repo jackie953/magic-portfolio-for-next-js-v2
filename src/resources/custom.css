@@ -55,6 +55,24 @@
   /*
 }*/
 
+/* Force white text on secondary buttons in dark mode */
+[data-theme="dark"] #learn-more,
+[data-theme="dark"] #learn-more *,
+[data-theme="dark"] #schedule-call,
+[data-theme="dark"] #schedule-call * {
+  color: white !important;
+}
+
+/* Table of contents fade-in (pure CSS — safe for position:fixed elements) */
+@keyframes toc-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.toc-fade-in {
+  animation: toc-fade-in 0.6s ease 0.3s both;
+}
+
 /* Scale down display headings on mobile */
 @media (max-width: 768px) {
   .font-display {
