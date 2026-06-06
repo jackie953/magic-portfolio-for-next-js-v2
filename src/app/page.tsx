@@ -99,7 +99,7 @@ export default function Home() {
                   size="m"
                   weight="default"
                   arrowIcon
-                  className="text-neutral-900 dark:text-white"
+                  className="text-neutral-900 dark:!text-white"
                   style={{ border: '1px solid var(--neutral-alpha-medium)' }}
                 >
                   Learn more

@@ -112,6 +112,7 @@ export const BookingCTA: React.FC<React.ComponentProps<typeof Column> & BookingC
       align="center"
       background="surface"
       border="neutral-alpha-weak"
+      className="max-sm:!p-8"
       {...flex}
     >
       <div style={{

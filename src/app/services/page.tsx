@@ -192,7 +192,7 @@ export default function Services() {
                     style={{ paddingInline: '2rem', paddingBlock: '0.875rem', fontSize: '1.05rem', border: '1px solid var(--neutral-alpha-medium)' }}
                     weight="default"
                     arrowIcon
-                    className="text-neutral-900 dark:text-white"
+                    className="text-neutral-900 dark:!text-white"
                   >
                     <Row vertical="center" gap="8">
                       <Icon name="email" onBackground="brand-weak" />
