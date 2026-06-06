@@ -55,3 +55,11 @@
   /*
 }*/
 
+/* Scale down display headings on mobile */
+@media (max-width: 768px) {
+  .font-display {
+    font-size: clamp(2rem, 7vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+  }
+}
+

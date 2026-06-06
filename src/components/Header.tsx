@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Line, Row, ToggleButton, useTheme } from "@once-ui-system/core";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -47,6 +47,54 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" })
 
 export default TimeDisplay;
 
+/** Full-row theme toggle used in the mobile hamburger menu */
+const MobileThemeRow: React.FC = () => {
+  const { theme, setTheme } = useTheme();
+  const [currentTheme, setCurrentTheme] = useState<string>("light");
+
+  useEffect(() => {
+    const t = document.documentElement.getAttribute("data-theme") || "light";
+    setCurrentTheme(t);
+  }, []);
+
+  useEffect(() => {
+    if (theme) setCurrentTheme(theme);
+  }, [theme]);
+
+  const toggle = () => {
+    const next = currentTheme === "light" ? "dark" : "light";
+    setTheme(next);
+    setCurrentTheme(next);
+    localStorage.setItem("theme", next);
+    document.documentElement.setAttribute("data-theme", next);
+  };
+
+  const label = currentTheme === "light" ? "Dark mode" : "Light mode";
+  const icon  = currentTheme === "light" ? "🌙" : "☀️";
+
+  return (
+    <button
+      onClick={toggle}
+      style={{
+        width: "100%",
+        padding: "13px 20px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        background: "none",
+        border: "none",
+        cursor: "pointer",
+        fontSize: "1rem",
+        color: "var(--neutral-on-background-weak)",
+        textAlign: "left",
+      }}
+    >
+      <span>{label}</span>
+      <span style={{ fontSize: "1.1rem" }}>{icon}</span>
+    </button>
+  );
+};
+
 const navLinkStyle = (active: boolean): React.CSSProperties => ({
   display: "block",
   padding: "13px 20px",
@@ -63,9 +111,28 @@ const navLinkStyle = (active: boolean): React.CSSProperties => ({
 export const Header = () => {
   const pathname = usePathname() ?? "";
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrollHidden, setScrollHidden] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
 
-  // Close on outside click
+  // Hide on scroll-down (mobile only), show on scroll-up
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.innerWidth > 768) return;
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY.current && currentY > 80) {
+        setScrollHidden(true);
+        setMenuOpen(false);
+      } else {
+        setScrollHidden(false);
+      }
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Close dropdown on outside click
   useEffect(() => {
     if (!menuOpen) return;
     const handler = (e: MouseEvent) => {
@@ -77,10 +144,14 @@ export const Header = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, [menuOpen]);
 
-  // Close on route change
+  // Close dropdown on route change
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  const headerClass = [styles.position, scrollHidden ? styles.headerHidden : ""]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <>
@@ -88,13 +159,14 @@ export const Header = () => {
 
       <Row
         fitHeight
-        className={styles.position}
+        className={headerClass}
         position="sticky"
         as="header"
         zIndex={9}
         fillWidth
         padding="8"
         horizontal="center"
+        vertical="center"
         data-border="rounded"
       >
         {/* LEFT: Site name — always visible */}
@@ -163,7 +235,7 @@ export const Header = () => {
           </Flex>
         </Flex>
 
-        {/* MOBILE: Hamburger + dropdown — mobile only */}
+        {/* MOBILE: Hamburger + dropdown */}
         <div ref={menuRef} className={styles.mobileNav}>
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
@@ -171,10 +243,7 @@ export const Header = () => {
             aria-expanded={menuOpen}
             className={styles.hamburger}
           >
-            {menuOpen
-              ? <X size={22} strokeWidth={2} />
-              : <Menu size={22} strokeWidth={2} />
-            }
+            {menuOpen ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
           </button>
 
           {menuOpen && (
@@ -209,17 +278,7 @@ export const Header = () => {
                   Contact
                 </Link>
               )}
-              {display.themeSwitcher && (
-                <div style={{
-                  padding: "12px 20px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                }}>
-                  <span style={{ fontSize: "1rem", color: "var(--neutral-on-background-weak)" }}>Theme</span>
-                  <ThemeToggle />
-                </div>
-              )}
+              {display.themeSwitcher && <MobileThemeRow />}
             </div>
           )}
         </div>

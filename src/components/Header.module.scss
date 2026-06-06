@@ -59,10 +59,20 @@
 }
 
 @media (max-width: breakpoints.$s) {
+    /* Fixed so it can slide off the top of the screen */
     .position {
-        position: sticky !important;
+        position: fixed !important;
         top: 0 !important;
+        left: 0;
+        right: 0;
         bottom: auto !important;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Slide-up + fade when scrolling down */
+    .headerHidden {
+        transform: translateY(-110%);
+        opacity: 0;
     }
 
     .mask {

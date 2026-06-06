@@ -74,12 +74,12 @@ export default function Home() {
                 {home.headline}
               </Heading>
             </RevealFx>
-            <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
+            <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="16">
               <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
                 {home.subline}
               </Text>
             </RevealFx>
-            <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
+            <RevealFx paddingTop="4" delay={0.4} horizontal="center" paddingLeft="12">
               <Column
                 position="relative"
                 overflow="hidden"
@@ -102,15 +102,13 @@ export default function Home() {
                   className="text-neutral-900 dark:text-white"
                   style={{ border: '1px solid var(--neutral-alpha-medium)' }}
                 >
-                  Learn More
+                  Learn more
                 </Button>
               </Column>
             </RevealFx>
           </Column>
         </Column>
-        <RevealFx translateY="16" delay={0.6}>
-          <Projects range={[1, 1]} />
-        </RevealFx>
+        <Projects range={[1, 1]} />
         {routes["/blog"] && (
           <Column fillWidth gap="24" marginBottom="l">
             <Row fillWidth paddingRight="64">

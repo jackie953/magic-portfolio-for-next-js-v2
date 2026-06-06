@@ -49,6 +49,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               loop
               muted
               playsInline
+              preload="auto"
               style={{
                 width: '100%',
                 height: '100%',
@@ -62,6 +63,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             <img
               src={firstImage}
               alt={title}
+              loading="eager"
+              fetchPriority="high"
               style={{
                 width: '100%',
                 height: '100%',
