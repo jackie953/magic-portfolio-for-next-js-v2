@@ -22,7 +22,7 @@ const social: Social = [
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/in/mhitaryan",
+    link: "https://www.linkedin.com/company/mhitaryan-consulting/",
   },
   {
     name: "Email",
