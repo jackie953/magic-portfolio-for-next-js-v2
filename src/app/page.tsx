@@ -17,6 +17,8 @@ import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import { CookieBanner } from "@/components/CookieBanner";
+import { Testimonial1 } from "@/components/testimonial-1";
+import { testimonials } from "@/components/testimonial-1-data";
 import Services from "./services/page";
 
 export async function generateMetadata() {
@@ -132,6 +134,9 @@ export default function Home() {
             </Column>
           )}
           <Projects range={[2]} />
+        </Column>
+        <Column fillWidth paddingX="l">
+          <Testimonial1 testimonials={testimonials} />
         </Column>
         <BookingCTA
           title="Work with me."
