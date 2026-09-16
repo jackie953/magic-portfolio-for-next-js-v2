@@ -183,6 +183,7 @@ export const Header = () => {
               letterSpacing: "0.02em",
               fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
               whiteSpace: "nowrap",
+              transform: "translateY(-4px)",
             }}
           >
             Mhitaryan Consulting
@@ -232,7 +233,13 @@ export const Header = () => {
 
         {/* RIGHT: Timezone — desktop only */}
         <Flex fillWidth horizontal="end" vertical="center" className={styles.desktopOnly}>
-          <Flex paddingRight="12" horizontal="end" vertical="center" textVariant="body-default-s">
+          <Flex
+            paddingRight="12"
+            horizontal="end"
+            vertical="center"
+            textVariant="body-default-s"
+            style={{ transform: "translateY(-4px)" }}
+          >
             Europe/Stockholm
           </Flex>
         </Flex>
