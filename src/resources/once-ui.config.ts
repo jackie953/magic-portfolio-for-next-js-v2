@@ -110,7 +110,7 @@ const effects: EffectsConfig = {
   },
   gradient: {
     display: true,
-    opacity: 100,
+    opacity: 40,
     x: 50,
     y: 60,
     width: 100,

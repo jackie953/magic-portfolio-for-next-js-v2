@@ -54,7 +54,7 @@ const bookingConfig: BookingCTAConfig = {
     mask: { x: 50, y: 0, radius: 100, cursor: true },
     gradient: {
       display: true,
-      opacity: 90,
+      opacity: 40,
       x: 50,
       y: 0,
       width: 50,
