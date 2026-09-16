@@ -185,7 +185,7 @@ export const Header = () => {
               whiteSpace: "nowrap",
             }}
           >
-            Jacqueline Mhitaryan
+            Mhitaryan Consulting
           </Link>
         </Row>
 
