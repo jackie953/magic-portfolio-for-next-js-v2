@@ -15,7 +15,9 @@ export function Testimonial1({
       {testimonials.map((testimonial) => (
         <Card key={testimonial.id} className="border border-border p-8">
           <CardContent className="p-0">
-            <p className="text-foreground text-base">{testimonial.content}</p>
+            <p className="font-body text-sm text-[var(--neutral-on-background-weak)]">
+              {testimonial.content}
+            </p>
             <p className="text-muted-foreground mt-4 text-sm">{testimonial.attribution}</p>
           </CardContent>
         </Card>
