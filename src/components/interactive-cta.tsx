@@ -111,7 +111,7 @@ const InteractiveCTA = ({
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.1, ease: 'linear', delay: 0.1 }}
                   key="image-container"
-                  className="rounded-full h-[42px] w-[42px] bg-gradient-to-b from-yellow-400 to-purple-500 flex items-center justify-center overflow-hidden"
+                  className="rounded-full h-[34px] w-[34px] shrink-0 bg-gradient-to-b from-yellow-400 to-purple-500 flex items-center justify-center overflow-hidden"
                 >
                   {avatar}
                 </motion.div>
