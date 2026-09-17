@@ -8,8 +8,8 @@ export const testimonials: Testimonial[] = [
   {
     id: 1,
     content:
-      "Professional and attentive to detail, with a perceptive grasp of client interests and needs. Trained quickly on projects and consistently met stringent deadlines.",
-    attribution: "Noam I., Public Affairs Director, APCO",
+      "Advanced language skills across multiple languages were a significant asset to the research team, strengthening the organization's ability to analyze and prepare documents from varied sources. Also brings experience in community leadership, campaign-building, and working with a wide range of people.",
+    attribution: "Becca W., Research Director, CIJA",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 3,
     content:
-      "Advanced language skills across multiple languages were a significant asset to the research team, strengthening the organization's ability to analyze and prepare documents from varied sources. Also brings experience in community leadership, campaign-building, and working with a wide range of people.",
-    attribution: "Becca W., Research Director, CIJA",
+      "Professional and attentive to detail, with a perceptive grasp of client interests and needs. Trained quickly on projects and consistently met stringent deadlines, with a balance between asking the right questions and taking initiative independently.",
+    attribution: "Noam I., Public Affairs Director, APCO",
   },
 ]
