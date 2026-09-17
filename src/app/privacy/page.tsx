@@ -90,10 +90,10 @@ export default function PrivacyPage() {
           consent at any time, and complain to the Swedish Authority for Privacy Protection (IMY) if
           you believe your data has been mishandled. Contact me at{" "}
           <a
-            href="mailto:jackie@mhitaryan.com"
+            href="mailto:contact@mhitaryan.com"
             className="text-blue-600 hover:underline dark:text-blue-500"
           >
-            jackie@mhitaryan.com
+            contact@mhitaryan.com
           </a>{" "}
           for any privacy-related requests.
         </Text>

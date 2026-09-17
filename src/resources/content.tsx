@@ -27,7 +27,7 @@ const social: Social = [
   {
     name: "Email",
     icon: "email",
-    link: "mailto:jackie@mhitaryan.com",
+    link: "mailto:contact@mhitaryan.com",
   },
     {
     name: "WhatsApp",

@@ -15,7 +15,7 @@ export default function CTAWrapper() {
       initialOpen={false}
       navigationLinks={[
         {
-          href: 'mailto:jackie@mhitaryan.com',
+          href: 'mailto:contact@mhitaryan.com',
           text: 'Email me',
           icon: <IconMail size={14} />,
           className:

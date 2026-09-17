@@ -195,7 +195,7 @@ export default function Services() {
                   <Button
                     id="schedule-call"
                     data-border="rounded"
-                    href="mailto:jackie@mhitaryan.com"
+                    href="mailto:contact@mhitaryan.com"
                     variant="secondary"
                     size="l"
                     style={{ paddingInline: '2rem', paddingBlock: '0.875rem', fontSize: '1.05rem', border: '1px solid var(--neutral-alpha-medium)' }}
