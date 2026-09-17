@@ -11,14 +11,14 @@ export function Testimonial1({
   testimonials: Testimonial[]
 }) {
   return (
-    <div className={cn("grid grid-cols-1 gap-8 md:grid-cols-3", className)}>
+    <div className={cn("grid grid-cols-1 items-start gap-8 md:grid-cols-3", className)}>
       {testimonials.map((testimonial) => (
-        <Card key={testimonial.id} className="border border-border p-8">
-          <CardContent className="p-0">
-            <p className="font-body text-sm text-[var(--neutral-on-background-weak)]">
+        <Card key={testimonial.id} className="h-full border border-border p-6">
+          <CardContent className="flex h-full flex-col justify-between gap-4 p-0">
+            <p className="font-body text-sm text-[var(--neutral-on-background-strong)]">
               {testimonial.content}
             </p>
-            <p className="text-muted-foreground mt-4 text-sm">{testimonial.attribution}</p>
+            <p className="text-muted-foreground text-sm">{testimonial.attribution}</p>
           </CardContent>
         </Card>
       ))}
