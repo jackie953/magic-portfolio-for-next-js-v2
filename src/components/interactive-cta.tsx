@@ -103,7 +103,7 @@ const InteractiveCTA = ({
             </motion.button>
             )}
           {isOpen && (
-            <div className="flex flex-col p-4 h-full w-full gap-3">
+            <div className="flex flex-col px-3 pt-4 pb-3 h-full w-full gap-3">
               <div className="flex items-center justify-center gap-2">
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -134,7 +134,7 @@ const InteractiveCTA = ({
                 exit={{ x: -10, opacity: 0 }}
                 transition={{ duration: 0.1, ease: 'linear', delay: 0.1, staggerChildren: 0.1 }}
                 key="navigation-buttons"
-                className="flex flex-col mt-5 pb-3"
+                className="flex flex-col mt-3"
               >
                 {navigationLinks.map((link, index) => (
                   <NavigationButton

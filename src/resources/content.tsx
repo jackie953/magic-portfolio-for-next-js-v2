@@ -29,19 +29,14 @@ const social: Social = [
     icon: "email",
     link: "mailto:contact@mhitaryan.com",
   },
-    {
-    name: "WhatsApp",
-    icon: "whatsapp",
-    link: "https://wa.me/46703245598",
-  },
 ];
 
 const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: "Jacqueline Mhitaryan",
-  description: "",
+  title: "Mhitaryan Consulting",
+  description: "Strategic research and communications at the intersection of power, politics, and people.",
   headline: <>Clarity and Courage When It Matters Most</>,
   featured: {
     display: false,

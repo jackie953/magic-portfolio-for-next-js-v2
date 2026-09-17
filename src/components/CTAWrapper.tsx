@@ -13,7 +13,8 @@ export default function CTAWrapper() {
       heading="Want to discuss a project?"
       subheading="A short conversation to explore fit."
       initialOpen={false}
-      openWidth="280px"
+      openWidth="250px"
+      openHeight="165px"
       navigationLinks={[
         {
           href: 'mailto:contact@mhitaryan.com',
