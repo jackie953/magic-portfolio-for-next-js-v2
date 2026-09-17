@@ -20,7 +20,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 3,
     content:
-      "Professional and attentive to detail, with a perceptive grasp of client interests and needs. Trained quickly on projects and consistently met stringent deadlines, with a balance between asking the right questions and taking initiative independently.",
+      "Professional and attentive to detail, with a perceptive grasp of client interests and needs. Consistently met stringent deadlines.",
     attribution: "Noam I., Public Affairs Director, APCO",
   },
 ]
