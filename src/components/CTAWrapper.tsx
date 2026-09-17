@@ -11,7 +11,7 @@ export default function CTAWrapper() {
   return (
     <InteractiveCTA
       heading="Want to discuss a project?"
-      subheading="A short conversation to explore if there's a fit."
+      subheading="A short conversation to explore fit."
       initialOpen={false}
       navigationLinks={[
         {

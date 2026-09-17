@@ -125,7 +125,7 @@ const InteractiveCTA = ({
                 >
                   {heading}
                   <br />
-                  <span className="text-white">{subheading}</span>
+                  <span className="text-xs font-normal text-zinc-400">{subheading}</span>
                 </motion.p>
               </div>
               <motion.div
