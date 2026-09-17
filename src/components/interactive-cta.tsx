@@ -121,7 +121,7 @@ const InteractiveCTA = ({
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.1, ease: 'linear', delay: 0.1 }}
                   key="text-container"
-                  className="text-sm truncate font-body text-white/70 font-medium"
+                  className="text-sm font-body text-white/70 font-medium"
                 >
                   {heading}
                   <br />
