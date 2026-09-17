@@ -51,7 +51,7 @@ const NavigationButton = ({
             <motion.p
               layout
               transition={{ duration: 0.1, ease: 'linear' }}
-              className="text-xs sm:text-sm whitespace-nowrap"
+              className="text-[11px] sm:text-xs whitespace-nowrap"
             >
               {text}
             </motion.p>

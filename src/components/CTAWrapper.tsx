@@ -11,10 +11,10 @@ export default function CTAWrapper() {
   return (
     <InteractiveCTA
       heading="Want to discuss a project?"
-      subheading="A short conversation to explore fit."
+      subheading=""
       initialOpen={false}
       openWidth="250px"
-      openHeight="165px"
+      openHeight="130px"
       navigationLinks={[
         {
           href: 'mailto:contact@mhitaryan.com',

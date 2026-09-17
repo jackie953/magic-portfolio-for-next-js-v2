@@ -121,11 +121,15 @@ const InteractiveCTA = ({
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.1, ease: 'linear', delay: 0.1 }}
                   key="text-container"
-                  className="text-sm font-body text-white/70 font-medium"
+                  className="text-sm font-body text-white/70 font-medium text-center"
                 >
                   {heading}
-                  <br />
-                  <span className="text-xs font-normal text-zinc-400">{subheading}</span>
+                  {subheading && (
+                    <>
+                      <br />
+                      <span className="text-xs font-normal text-zinc-400">{subheading}</span>
+                    </>
+                  )}
                 </motion.p>
               </div>
               <motion.div
