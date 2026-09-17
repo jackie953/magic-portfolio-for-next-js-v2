@@ -139,7 +139,7 @@ export default function Home() {
           <Testimonial1 testimonials={testimonials} />
         </Column>
         <BookingCTA
-          title="Work with me."
+          title="Work with us."
           description="A short conversation to explore whether there's a fit."
           buttonText="Get in touch"
           buttonHref="mailto:jackie@mhitaryan.com"
