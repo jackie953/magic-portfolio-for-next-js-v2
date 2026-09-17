@@ -114,14 +114,19 @@ export const Header = () => {
   const pathname = usePathname() ?? "";
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollHidden, setScrollHidden] = useState(false);
+  const [navOpacity, setNavOpacity] = useState(1);
   const menuRef = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
 
-  // Hide on scroll-down (mobile only), show on scroll-up
+  // Fade the header text/nav out over the first bit of scroll (all breakpoints)
   useEffect(() => {
+    const FADE_DISTANCE = 160;
     const onScroll = () => {
-      if (window.innerWidth > 768) return;
       const currentY = window.scrollY;
+      setNavOpacity(Math.max(0, 1 - currentY / FADE_DISTANCE));
+
+      // Hide on scroll-down (mobile only), show on scroll-up
+      if (window.innerWidth > 768) return;
       if (currentY > lastScrollY.current && currentY > 80) {
         setScrollHidden(true);
         setMenuOpen(false);
@@ -133,6 +138,12 @@ export const Header = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const navFadeStyle: React.CSSProperties = {
+    opacity: navOpacity,
+    transition: "opacity 0.15s linear",
+    pointerEvents: navOpacity < 0.05 ? "none" : "auto",
+  };
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -172,7 +183,7 @@ export const Header = () => {
         data-border="rounded"
       >
         {/* LEFT: Site name — always visible */}
-        <Row paddingLeft="12" fillWidth vertical="center">
+        <Row paddingLeft="12" fillWidth vertical="center" style={navFadeStyle}>
           <Link
             href="/"
             style={{
@@ -191,7 +202,7 @@ export const Header = () => {
         </Row>
 
         {/* CENTER: Pill nav — desktop only */}
-        <Row fillWidth horizontal="center" className={styles.desktopOnly}>
+        <Row fillWidth horizontal="center" className={styles.desktopOnly} style={navFadeStyle}>
           <Row
             background="page"
             border="neutral-alpha-weak"
@@ -232,7 +243,7 @@ export const Header = () => {
         </Row>
 
         {/* RIGHT: Timezone — desktop only */}
-        <Flex fillWidth horizontal="end" vertical="center" className={styles.desktopOnly}>
+        <Flex fillWidth horizontal="end" vertical="center" className={styles.desktopOnly} style={navFadeStyle}>
           <Flex
             paddingRight="12"
             horizontal="end"
