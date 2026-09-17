@@ -103,7 +103,7 @@ const InteractiveCTA = ({
             </motion.button>
             )}
           {isOpen && (
-            <div className="flex flex-col p-5 h-full w-full gap-3">
+            <div className="flex flex-col p-4 h-full w-full gap-3">
               <div className="flex items-center justify-center gap-2">
                 <motion.div
                   initial={{ opacity: 0 }}
